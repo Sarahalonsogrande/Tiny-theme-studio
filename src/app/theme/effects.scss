@@ -1,0 +1,66 @@
+/* MOOD ELEVATION (Primary-tinted depth)
+    Variant elevation system tinted with primary color.
+    Independent from surface-based elevation. Used for:
+    - Interactive highlights
+    - Accent surfaces
+    - Emotional emphasis
+*/
+
+:root {
+    /* SHADOW MOOD COLOR - Derived from primary palette instead of surface */
+    --shadow-mood-color: var(--primary-h) calc(var(--primary-s) * 0.6) var(--primary-l-2);
+
+    --shadow-mood-subtle: hsl(var(--shadow-mood-color) / var(--alpha-subtle));
+    --shadow-mood-medium: hsl(var(--shadow-mood-color) / var(--alpha-medium));
+    --shadow-mood-strong: hsl(var(--shadow-mood-color) / var(--alpha-strong));
+    --shadow-mood-stronger: hsl(var(--shadow-mood-color) / var(--alpha-stronger));
+    --shadow-mood-dream: hsl(var(--shadow-mood-color) / var(--alpha-dreamy));
+
+    --shadow-x: -2px;
+
+    /* SHADOW MOOD STACKS - Multi-layered penumbra approximation */
+    --shadow-mood-rest:
+        calc(var(--shadow-x) * 0.5) 1px 2px var(--shadow-mood-strong),
+        calc(var(--shadow-x) * 1)   2px 4px -1px var(--shadow-mood-strong);
+
+    --shadow-mood-raised:
+        calc(var(--shadow-x) * 1) 1px 2px var(--shadow-mood-medium),
+        calc(var(--shadow-x) * 2) 3px 6px -1px var(--shadow-mood-strong),
+        calc(var(--shadow-x) * 3) 6px 10px -2px var(--shadow-mood-stronger);
+
+    --shadow-mood-floating:
+        calc(var(--shadow-x) * 1) 2px 4px var(--shadow-mood-medium),
+        calc(var(--shadow-x) * 2) 6px 12px -2px var(--shadow-mood-strong),
+        calc(var(--shadow-x) * 3) 12px 20px -4px var(--shadow-mood-stronger);
+
+    --shadow-mood-overlay:
+        calc(var(--shadow-x) * 1) 2px 4px var(--shadow-mood-strong),
+        calc(var(--shadow-x) * 2) 8px 16px -2px var(--shadow-mood-stronger),
+        calc(var(--shadow-x) * 3) 16px 32px -6px var(--shadow-mood-dream);
+
+    --shadow-mood-modal:
+        calc(var(--shadow-x) * 1) 2px 4px var(--shadow-mood-medium),
+        calc(var(--shadow-x) * 2) 10px 20px -2px var(--shadow-mood-strong),
+        calc(var(--shadow-x) * 3) 20px 40px -6px var(--shadow-mood-stronger),
+        calc(var(--shadow-x) * 4) 40px 80px -12px var(--shadow-mood-dream);
+
+    --shadow-mood-dreamy:
+        calc(var(--shadow-x) * 1) 4px 8px var(--shadow-mood-stronger),
+        calc(var(--shadow-x) * 2) 12px 24px var(--shadow-mood-dream),
+        calc(var(--shadow-x) * 3) 24px 48px var(--shadow-mood-dream);
+
+    --shadow-mood-effect:
+        calc(var(--shadow-x) * 2) 0 20px 4px var(--background),
+        calc(var(--shadow-x) * 3) 0 20px 12px var(--color-primary),
+        calc(var(--shadow-x) * 4) 0 40px 20px var(--color-accent),
+        calc(var(--shadow-x) * 5) 0 40px 28px var(--color-highlight);
+
+    /* MOOD ELEVATION TOKENS (PUBLIC API — use these in components) */
+    --elevation-mood-rest: var(--shadow-mood-rest);
+    --elevation-mood-raised: var(--shadow-mood-raised);
+    --elevation-mood-floating: var(--shadow-mood-floating);
+    --elevation-mood-overlay: var(--shadow-mood-overlay);
+    --elevation-mood-modal: var(--shadow-mood-modal);
+    --elevation-mood-dreamy: var(--shadow-mood-dreamy);
+    --elevation-mood-effect: var(--shadow-mood-effect);
+}

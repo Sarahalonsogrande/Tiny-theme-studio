@@ -1,13 +1,73 @@
 <!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>TinyThemeStudio</title>
+  <title>Tiny Theme Studio</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <!-- Pre-bootstrap script for theme, mood, and language initialization.
+      Runs before Angular loads to prevent UI flashes. -->
+  <script>
+    // See docs/THEMING.md for design, keys and conventions.
+    (function () {
+      // Define allowed values to prevent invalid injections.
+      var allowedModes = ['light', 'dark'];
+      var allowedMoods = ['birthday', 'leafy', 'flowery', 'tiger', 'ocean'];
+
+      try {
+        // MODE: Initialize from localStorage or system preference.
+        var storedMode = null;
+        try { storedMode = localStorage.getItem('ui-mode'); } catch (e) { storedMode = null; }
+
+        var prefersDark = false;
+        try { prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; } catch (e) { prefersDark = false; }
+
+        var mode = allowedModes.includes(storedMode) ? storedMode : (prefersDark ? 'dark' : 'light');
+        // Apply mode to DOM to avoid flashes.
+        if (mode && document && document.documentElement) {
+          document.documentElement.setAttribute('data-mode', mode);
+          document.documentElement.classList.remove('light', 'dark');
+          document.documentElement.classList.add(mode);
+          try { document.body.classList.remove('light', 'dark'); document.body.classList.add(mode); } catch (e) { }
+          try { document.body.setAttribute('data-mode', mode); } catch (e) { }
+        }
+
+        // MOOD: Initialize from localStorage or default.
+        var storedMood = null;
+        try { storedMood = localStorage.getItem('ui-mood'); } catch (e) { storedMood = null; }
+
+        var mood = allowedMoods.includes(storedMood) ? storedMood : 'birthday';
+        // Apply mood to DOM.
+        if (mood && document && document.documentElement) {
+          document.documentElement.setAttribute('data-mood', mood);
+          try { document.body.setAttribute('data-mood', mood); } catch (e) { }
+        }
+
+        // LANGUAGE: Initialize from localStorage or navigator.
+        var storedLang = null;
+        try { storedLang = localStorage.getItem('lang'); } catch (e) { storedLang = null; }
+
+        var navLang = null;
+        try { navLang = (typeof navigator !== 'undefined' && navigator.language) ? navigator.language.split('-')[0] : null; } catch (e) { navLang = null; }
+
+        var lang = storedLang || navLang || 'en';
+        // Set lang attribute on html element.
+        if (typeof document !== 'undefined' && document.documentElement && lang) {
+          if (lang && document && document.documentElement) document.documentElement.lang = lang;
+        }
+      } catch (e) {
+        // Ignore errors for defensive pre-bootstrap.
+      }
+    })();
+  </script>
 </head>
+
+<!-- Main app container -->
 <body>
   <app-root></app-root>
 </body>
+
 </html>

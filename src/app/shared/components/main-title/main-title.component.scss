@@ -1,0 +1,11 @@
+/* MAIN TITLE STYLES
+    - Tight line height for compact text
+    - Primary color for emphasis
+*/
+
+.main-title {
+    color: var(--color-primary);
+    letter-spacing: var(--font-letterspacing-1);
+    line-height: var(--line-height-tight);
+    text-transform: uppercase;
+}

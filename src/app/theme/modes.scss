@@ -1,0 +1,97 @@
+/*
+ * MODES (luminosity)
+    See docs/THEMING.md for full design and usage guidance.
+   * - Attribute selectors `:root[data-mode="..."]` for token overrides.
+   * - Class selectors: for compatibility with legacy rules.
+ */
+
+ /* LIGHT MODE */
+@use './primitives.scss' as *;
+
+/* DARK MODE overrides */
+:root[data-mode='dark'],
+html.dark,
+body.dark {
+  /* Raw lightness scale (private) */
+  --primary-l-1: 96%;
+  --primary-l-2: 88%;
+  --primary-l-3: 78%; /* Base */
+  --primary-l-4: 62%;
+  --primary-l-5: 44%;
+
+  --accent-l-1: 94%;
+  --accent-l-2: 84%;
+  --accent-l-3: 72%; /* Base */
+  --accent-l-4: 58%;
+  --accent-l-5: 42%;
+
+  --highlight-l-1: 96%;
+  --highlight-l-2: 88%;
+  --highlight-l-3: 78%; /* Base */
+  --highlight-l-4: 64%;
+  --highlight-l-5: 48%;
+
+  /* SURFACES */
+  --background-l: var(--surface-l-background-dark);
+  --surface-l: var(--surface-l-base-dark);
+  --surface-raised-l: var(--surface-l-raised-dark);
+  --surface-overlay-l: var(--surface-l-overlay-dark);
+
+  --text: hsl(var(--surface-h) 12% calc(var(--surface-l) + 68%));
+  --muted: hsl(var(--surface-h) 8% calc(var(--surface-l) + 48%));
+
+  /* ON-COLORS for dark-mode: inverted to preserve semantic contrast. */
+  --on-light: hsl(0 0% 100%);
+  --on-dark: hsl(0 0% 10%);
+
+  /* ALPHA */
+  --alpha-subtle: 0.06;
+  --alpha-medium: 0.12;
+  --alpha-strong: 0.18;
+  --alpha-stronger: 0.24;
+  --alpha-dreamy: 0.30;
+}
+
+/* SEPIA MODE overrides */
+:root[data-mode='sepia'],
+html.sepia,
+body.sepia {
+  /* Raw lightness scale (private) */
+  --primary-l-1: 96%;
+  --primary-l-2: 88%;
+  --primary-l-3: 78%; /* Base */
+  --primary-l-4: 62%;
+  --primary-l-5: 44%;
+
+  --accent-l-1: 94%;
+  --accent-l-2: 84%;
+  --accent-l-3: 72%; /* Base */
+  --accent-l-4: 58%;
+  --accent-l-5: 42%;
+
+  --highlight-l-1: 96%;
+  --highlight-l-2: 88%;
+  --highlight-l-3: 78%; /* Base */
+  --highlight-l-4: 64%;
+  --highlight-l-5: 48%;
+
+  /* SURFACES */
+  --background-l: var(--surface-l-background-dark);
+  --surface-l: var(--surface-l-base-dark);
+  --surface-raised-l: var(--surface-l-raised-dark);
+  --surface-overlay-l: var(--surface-l-overlay-dark);
+
+  --text: hsl(var(--surface-h) 12% calc(var(--surface-l) + 68%));
+  --muted: hsl(var(--surface-h) 8% calc(var(--surface-l) + 48%));
+
+  /* ON-COLORS for dark-mode: inverted to preserve semantic contrast. */
+  --on-light: hsl(0 0% 100%);
+  --on-dark: hsl(0 0% 10%);
+
+  /* ALPHA */
+  --alpha-subtle: 0.06;
+  --alpha-medium: 0.12;
+  --alpha-strong: 0.18;
+  --alpha-stronger: 0.24;
+  --alpha-dreamy: 0.30;
+}

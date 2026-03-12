@@ -1,0 +1,75 @@
+{
+    "buttons": {
+        "save": "guardar",
+        "edit": "editar",
+        "add": "añadir",
+        "next": "siguiente",
+        "back": "atrás",
+        "start": "empezar",
+        "finish": "finalizar",
+        "skip": "saltar",
+        "reset": "limpiar"
+    },
+    "aria": {
+        "next": "Ir al siguiente paso",
+        "back": "Volver al paso anterior",
+        "start": "Comenzar el proceso",
+        "finish": "Finalizar y continuar",
+        "skip": "Saltar este paso",
+        "close": "Cerrar diálogo",
+        "openMenu": "Abrir menú",
+        "submit": "Enviar formulario",
+        "cancel": "Cancelar y volver",
+        "selectLanguage": "Seleccionar idioma",
+        "selectMode": "Seleccionar modo",
+        "selectMood": "Seleccionar estado de ánimo",
+        "guideButton": "Ir a guía de estilos"
+    },
+    "appTitles": {
+        "appTitle": "tiny T.S.",
+        "welcomeTitle": "bienvenido",
+        "stylesTitle": "estilos",
+        "swatchesTitle": "muestras"
+    },
+    "welcome": {
+        "cover": {
+            "title": "tiny theme studio",
+            "quote": "Pero si no soy la misma, la siguiente pregunta es, ¿quién demonios soy?\\n¡Ah, ESTE es el gran Enigma! \u27b0"
+        },
+        "rabbit-hole": {
+            "title": "LA MADRIGUERA CORRUPTA",
+            "quote": "Abajo, abajo, abajo... ¿No acabará NUNCA esta caída?\\nMe gustaría saber cuán profundo he descendido ya."
+        },
+        "angular": {
+            "title": "EL GATO DE LA ENTRADA",
+            "quote": "— ¿Podrías decirme, por favor, qué camino debo seguir para entrar aquí?\\n— Esto depende en gran parte del sitio al que quieras llegar.\\n— No me importa mucho el sitio..."
+        },
+        "html": {
+            "title": "LA SEMANTICA DE LA REINA",
+            "quote": "— Y la moraleja de esto es:\\nCuida la semántica y el sentido cuidará de sí mismo."
+        },
+        "css": {
+            "title": "EL PAIS DE LAS VARIABLES",
+            "quote": "— Aquí todos estamos locos. Yo estoy loco. Tú estás loca.\\n— ¿Cómo sabes que yo estoy loca?\\n— Tienes que estarlo, o no habrías venido aquí."
+        },
+        "journey": {
+            "title": "EL VIAJE",
+            "quote": "Si conocieras al Tiempo tan bien como yo, no hablarías de malgastarlo. Él es muy suyo",
+            "text": "Como Alicia tras el conejo, este proyecto es una travesía por un mundo de decisiones y sorpresas.\\nEncontré una pequeña llave de oro y abrí la puerta sin saber qué habría detrás.\\nNo sigue convenciones rígidas ni busca ser ejemplo de nada: es una madriguera donde perderse."
+        },
+        "conclusion": {
+            "title": "La Declaracion de Sarah",
+            "text": "Bebí la poción del css y tristes RGB se dividieron en haces de Luz con los que jugar.\\nTodo se tiñó de Saturación y Matices y las sombras se proyectaban hermosas ahí abajo."
+        },
+        "guide": {
+            "title": "GUIA",
+            "quote": "¡No sois más que una baraja de variables!",
+            "text": "Una pequeña guía visual de lo construído hasta ahora.",
+            "go": "IR",
+            "goImgAlt": "Paleta de colores"
+        },
+        "footer": {
+            "note": "🚨 Lewis Carroll nunca escribió esto, pero probablemente lo haría de tener mi trayectoria."
+        }
+    }
+}

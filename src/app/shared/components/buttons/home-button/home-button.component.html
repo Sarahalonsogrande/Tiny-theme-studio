@@ -1,0 +1,16 @@
+
+<!--
+    HomeButtonComponent
+    -------------------
+    - Minimal floating action button for navigating to Home.
+    - Wraps SpinButtonComponent, passing only the Home option.
+    - Accessible: ariaLabel describes the action for screen readers (i18n-friendly).
+    - See /docs/THEMING.md for design and accessibility guidelines.
+-->
+
+<app-spin-button
+    [values]="navOptions"
+    [value]="navOptions[0]"
+    [ariaLabel]="ariaLabel"
+    (click)="goHome(navOptions[0])"
+/>

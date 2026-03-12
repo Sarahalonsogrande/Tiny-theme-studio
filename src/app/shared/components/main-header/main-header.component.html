@@ -1,0 +1,24 @@
+<!-- MAIN HEADER TEMPLATE
+    - Renders translated title, switchers for mode/mood/language, and navigation.
+    - Header uses aria-labelledby for accessibility.
+-->
+
+<header aria-labelledby="global-header-title">
+    <!-- Theming manager: Mode & Mood components (left/start slot) -->
+    <!-- <app-theme-manager /> -->
+
+    <!-- Header title (Translated, custom font) -->
+    <nav class="header-btns">
+
+    <!-- <app-home-button /> -->
+    <app-language-switcher />
+    </nav>
+
+    <!-- <app-main-title /> -->
+
+    <!-- Home button & Language switcher (right/end slot) -->
+    <nav class="header-btns">
+        <app-mode-switcher />
+        <app-mood-switcher />
+    </nav>
+</header>

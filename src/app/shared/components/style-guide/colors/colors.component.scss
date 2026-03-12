@@ -1,0 +1,67 @@
+/* Color Swatches */
+.color-primary {
+    background: linear-gradient(var(--gradient-angle),
+        var(--color-primary-weakest) 0%,
+        var(--color-primary-weak) 25%,
+        var(--color-primary) 50%,
+        var(--color-primary-strong) 75%,
+        var(--color-primary-strongest) 100%);
+}
+.color-accent {
+    background: linear-gradient(var(--gradient-angle),
+        var(--color-accent-weakest) 0%,
+        var(--color-accent-weak) 25%,
+        var(--color-accent) 50%,
+        var(--color-accent-strong) 75%,
+        var(--color-accent-strongest) 100%);
+}
+.color-highlight {
+    background: linear-gradient(var(--gradient-angle),
+        var(--color-highlight-weakest) 0%,
+        var(--color-highlight-weak) 25%,
+        var(--color-highlight) 50%,
+        var(--color-highlight-strong) 75%,
+        var(--color-highlight-strongest) 100%);
+}
+.color-success {
+    background: linear-gradient(var(--gradient-angle),
+        var(--color-success-weak) 0%,
+        var(--color-success) 50%,
+        var(--color-success-strong) 100%);
+}
+.color-warning {
+    background: linear-gradient(var(--gradient-angle),
+        var(--color-warning-weak) 0%,
+        var(--color-warning) 50%,
+        var(--color-warning-strong) 100%);
+}
+.color-danger {
+    background: linear-gradient(var(--gradient-angle),
+        var(--color-danger-weak) 0%,
+        var(--color-danger) 50%,
+        var(--color-danger-strong) 100%);
+}
+.color-info {
+    background: linear-gradient(var(--gradient-angle),
+        var(--color-info-weak) 0%,
+        var(--color-info) 50%,
+        var(--color-info-strong) 100%);
+}
+.color-neutral {
+    background: linear-gradient(var(--gradient-angle),
+        var(--color-neutral-weak) 0%,
+        var(--color-neutral) 50%,
+        var(--color-neutral-strong) 100%);
+}
+.color-background {
+    background: linear-gradient(var(--gradient-angle),
+        var(--background) 0%,
+        var(--surface) 50%,
+        var(--surface-raised) 100%);
+}
+.color-surface {
+    background: linear-gradient(var(--gradient-angle),
+        var(--surface) 0%,
+        var(--surface-raised) 50%,
+        var(--surface-overlay) 100%);
+}

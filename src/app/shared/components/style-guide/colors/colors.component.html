@@ -1,0 +1,9 @@
+<app-tokens>
+    @for (color of colors; track $index) {
+        <app-token
+            [label]="color.label"
+            [swatchClass]="color.swatchClass"
+            [value]="color.value">
+        </app-token>
+    }
+</app-tokens>

@@ -1,0 +1,58 @@
+<!--
+    Toggle Button Component:
+    - Uses a checkbox input
+    - Images are decorative (aria-hidden)
+    - Label provides clickable area
+    - Role="switch" + aria-checked for enhanced screen reader support
+-->
+
+<button
+    type="button"
+    role="switch"
+    class="toggle-button"
+    [class.checked]="isChecked()"
+    [attr.aria-checked]="isChecked()"
+    [attr.aria-label]="ariaLabel()"
+>
+    <!-- Option 1 image: decorative -->
+    @if (option1(); as opt1) {
+        <!-- Fixed size to prevent layout shift -->
+        <img
+            [src]="opt1.img"
+            alt=""
+            class="toggle-icon icon-off"
+            aria-hidden="true"
+            width="24"
+            height="24"
+        />
+    }
+
+    <!-- Option 2 image: decorative -->
+    @if (option2(); as opt2) {
+        <!-- Fixed size to prevent layout shift -->
+        <img
+            [src]="opt2.img"
+            alt=""
+            class="toggle-icon icon-on"
+            aria-hidden="true"
+            width="24"
+            height="24"
+        />
+    }
+
+    <!-- Checkbox input: real toggle element:
+        - Hidden from screen readers.
+        - Focus moves to the outer div (tabindex)
+    -->
+    <input
+        type="checkbox"
+        [id]="toggleId"
+        [checked]="isChecked()"
+        (change)="onToggle($event)"
+        aria-hidden="true"
+        tabindex="-1"
+    />
+
+    <!-- Label: clickable visual area -->
+    <label [for]="toggleId" class="focus-ring"></label>
+</button>

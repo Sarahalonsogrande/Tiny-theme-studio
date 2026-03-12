@@ -1,0 +1,57 @@
+<!--
+    SpinButtonComponent
+    --------------------
+    - Action button that shows an icon (or image) and performs a spin animation.
+    - Works with modes, moods, language options or any custom option set.
+    - Accessible: `ariaLabel` input describe the action for screen readers, translated (i18n, via ngx-translate).
+    - Icon or image updates dynamically based on the current value.
+-->
+
+<!-- Main spin button -->
+<button
+    type="button"
+    class="spin-btn"
+    (click)="onSwitch()"
+    [class.rotating]="isRotating()"
+    [class.rotate-next]="rotationDirection() === 'next'"
+    [class.rotate-prev]="rotationDirection() === 'prev'"
+    [attr.aria-label]="ariaLabel()"
+    [attr.aria-pressed]="false"
+>
+    <!-- Icon wrapper triggers spin animation -->
+    <span class="icon-wrapper">
+        <span class="spin-icon" (animationend)="onAnimationEnd()">
+            <!-- Evaluate value() once & assign it to `option` to prevent multiple calls within the block -->
+            @if (value(); as option) {
+                <!-- Show image if option.img exists -->
+                @if (option.img) {
+                    <!-- Fixed size to prevent layout shift; no lazy loading needed for button -->
+                    <img [src]="option.img" width="24" height="24" alt="" aria-hidden="true" />
+                } @else if (option.icon) {
+                    <!-- Show emoji/icon if option.icon exists -->
+                    <span aria-hidden="true">{{ option.icon }}</span>
+                } @else {
+                    <!-- Option has no icon/img: use default icon or generic SVG -->
+                    @if (defaultIcon()) {
+                        <span aria-hidden="true">{{ defaultIcon() }}</span>
+                    } @else {
+                        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 64 64">
+                            <title xmlns="">radio-button</title>
+                            <circle cx="32" cy="31" r="30" fill="#94989b"/><circle cx="32" cy="32" r="15" fill="#626a6d"/>
+                            <circle cx="32" cy="30.4" r="15" fill="#d9e3e8"/>
+                        </svg>
+                    }
+                }
+            }
+        </span>
+    </span>
+</button>
+
+<!-- Live region to announce selected option changes for screen readers -->
+<span
+    aria-live="polite"
+    role="status"
+    class="visually-hidden"
+>
+    {{ announcerText() }}
+</span>

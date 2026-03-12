@@ -1,0 +1,95 @@
+{
+    "buttons": {
+        "save": "save",
+        "edit": "edit",
+        "add": "add",
+        "next": "next",
+        "back": "back",
+        "start": "start",
+        "finish": "finish",
+        "skip": "skip",
+        "reset": "reset"
+    },
+    "aria": {
+        "next": "Go to next step",
+        "back": "Go to previous step",
+        "start": "Start the process",
+        "finish": "Finish and continue",
+        "skip": "Skip this step",
+        "close": "Close dialog",
+        "openMenu": "Open menu",
+        "submit": "Submit form",
+        "cancel": "Cancel and go back",
+        "selectLanguage": "Select Language",
+        "selectMode": "Select Mode",
+        "selectMood": "Select Mood",
+        "guideButton": "Go to style guide"
+    },
+    "appTitles": {
+        "appTitle": "tiny T.S.",
+        "welcomeTitle": "welcome",
+        "stylesTitle": "styles",
+        "swatchesTitle": "swatches"
+    },
+    "welcome": {
+        "cover": {
+            "title": "Tiny Theme Studio",
+            "quote": "But if I'm not the same, the next question is, Who in the world am I?\\nAh, THAT'S the great Enigma! \u27b0"
+        },
+        "rabbit-hole": {
+            "title": "DOWN SCOPE CREEP HOLE",
+            "quote": "Down, down, down... Would the fall never come to an end?\\nI wonder how deeper I've fallen by this time."
+        },
+        "angular": {
+            "title": "THE ENTRY-POINT CAT",
+            "quote": "— Would you tell me, please, which way I should go to get in?\\n— That depends a good deal on where you want to get to.\\n— I don't much care where..."
+        },
+        "html": {
+            "title": "THE QUEEN'S SEMANTIC",
+            "quote": "— And the moral of that is:\\nTake care of the semantics and the sense will take care of itself."
+        },
+        "css": {
+            "title": "THE LAND OF VARIABLES",
+            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
+        },
+        "journey": {
+            "title": "THE JOURNEY",
+            "quote": "If you knew Time as well as I do, you wouldn't talk about wasting it. It's him",
+            "text": "Like Alice following the rabbit, this project is a journey through a world of decisions and surprises.\\nI found a small golden key and opened the door without knowing what lay beyond.\\nIt doesn't follow rigid conventions or pretend to be an example of anything: it's a rabbit hole to get lost in."
+        },
+        "conclusion": {
+            "title": "Sarah's Declaration",
+            "text": "I drank the CSS potion and sad RGBs split into beams of Light to play with.\\nEverything was tinged with Saturation and Hues, and the shadows cast beautifully down below."
+        },
+        "tea-party": {
+            "title": "A MAD TEA PARTY",
+            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
+        },
+        "croquet-ground": {
+            "title": "QUEEN'S CROQUET GROUND",
+            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
+        },
+        "turtle": {
+            "title": "MOCK TURTLE'S STORY",
+            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
+        },
+        "lobster": {
+            "title": "LOBSTER QUADRILLE",
+            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
+        },
+        "tarts": {
+            "title": "WHO STOLE THE TARTS?",
+            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
+        },
+        "guide": {
+            "title": "THE END GUIDE",
+            "quote": "You're nothing but a pack of variables!",
+            "text": "A small visual guide of what's been built so far.",
+            "go": "GO",
+            "goImgAlt": "Color palette"
+        },
+        "footer": {
+            "note": "🚨 Lewis Carroll never wrote this, but he probably would have if he'd had my background."
+        }
+    }
+}

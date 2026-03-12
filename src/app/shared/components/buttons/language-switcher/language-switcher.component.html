@@ -1,0 +1,14 @@
+<!--
+  LanguageSwitcherComponent
+  ---------------------
+  - Uses <app-spin-button> to switch between available languages.
+  - Accessible: ariaLabel input translated (i18n, via ngx-translate).
+  - Icon or text updates dynamically based on the current language.
+-->
+
+<app-spin-button
+  [values]="langOptions"
+  [ariaLabel]="'aria.selectLanguage' | translate"
+  (optionChange)="setLang($event)"
+  [value]="currentLangOption()"
+/>

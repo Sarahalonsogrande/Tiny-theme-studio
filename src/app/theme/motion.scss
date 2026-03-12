@@ -1,0 +1,35 @@
+:root {
+    /* MOTION FACTOR */
+    --motion-factor: 1.2;
+
+    /* DURATION SCALE */
+    --duration-xs: calc(120ms * var(--motion-factor)); /* 0.144s */
+    --duration-sm: calc(180ms * var(--motion-factor)); /* 0.216s */
+    --duration-md: calc(300ms * var(--motion-factor)); /* 0.36s */
+    --duration-lg: calc(600ms * var(--motion-factor)); /* 0.72s */
+    --duration-xl: calc(800ms * var(--motion-factor)); /* 0.96s */
+    --duration-xxl: calc(900ms * var(--motion-factor)); /* 1.08s */
+
+    /* EASING SCALE */
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --ease-bounce: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    --ease-emphasized: cubic-bezier(0.22, 1, 0.36, 1);
+
+    /* SEMANTICS */
+    /* Micro interactions */
+    --motion-hover-duration: var(--duration-sm); /* 0.216s */
+    --motion-hover-ease: var(--ease-out);
+
+    --motion-press-duration: var(--duration-xs); /* 0.144s */
+    --motion-press-ease: var(--ease-in);
+
+    /* System changes */
+    --motion-system-duration: var(--duration-md); /* 0.36s */
+    --motion-system-ease: var(--ease-standard);
+
+    /* Emphasis */
+    --motion-emphasized-duration: var(--duration-xl); /* 0.96s */
+    --motion-emphasized-ease: var(--ease-emphasized);
+}

@@ -1,0 +1,43 @@
+.hole-container {
+    height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #2c1b3e 0%, #000000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+//   background-image: linear-gradient(135deg, var(--bg-glass) 0%, var(--highlight-sweep) 100%);
+//   background-image: linear-gradient(to right, #a8caba 0%, #5d4157 100%);
+
+background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
+
+//   overflow-x: clip;
+}
+/* El túnel que se mueve */
+.tunnel {
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  //background-image: url('/images/tunnel-texture.jpg'); /* O un patrón de rombos de la baraja */
+  background-attachment: fixed;
+  animation: tunnelScroll 10s linear infinite;
+  opacity: 0.3;
+}
+
+.falling-object {
+  position: absolute;
+  font-size: 3rem;
+  animation: floatAndRotate 5s linear infinite;
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.5));
+}
+
+@keyframes tunnelScroll {
+  from { transform: translateZ(0) rotate(0deg); }
+  to { transform: translateZ(500px) rotate(360deg); }
+}
+
+@keyframes floatAndRotate {
+  0% { transform: translateY(-120vh) rotate(0deg); }
+  100% { transform: translateY(120vh) rotate(720deg); }
+}

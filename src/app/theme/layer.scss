@@ -1,0 +1,10 @@
+:root{
+    /* LAYERING Z-INDEX */
+    --layer-behind: -1;
+    --layer-base: auto;
+    --layer-raised: 10;
+    --layer-floating: 100;
+    --layer-overlay: 200;
+    --layer-modal: 400;
+    --layer-toast: 800;
+}

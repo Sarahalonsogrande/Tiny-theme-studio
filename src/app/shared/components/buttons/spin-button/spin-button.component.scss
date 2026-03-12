@@ -1,0 +1,120 @@
+/*
+    Spin Button Styles
+    --------------------------------------------------
+    - Reusable floating action / FAB-like button
+    - Includes sizing, alignment, visual feedback, and direction-aware spin animations
+    - Fully accessible (focus, press, live region)
+*/
+
+/* Main button: size, shape, background, shadow, focus & press feedback */
+.spin-btn {
+  width: var(--btn-fab-diameter);
+  height: var(--btn-fab-diameter);
+  background: var(--color-highlight-a50);
+  border: thin solid var(--color-primary-weakest);
+  border-radius: var(--radius-round);
+  box-shadow: var(--elevation-mood-rest);
+  transition:
+    background-color 0.24s ease,
+    transform 0.15s ease;
+
+  /* Motion hover / focus */
+  &:hover {
+    transform: translateY(-1px) translateX(-1px);
+    box-shadow: var(--elevation-mood-raised);
+    background: var(--color-highlight-a20);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--elevation-mood-rest);
+  }
+
+  &:disabled {
+    background: var(--button-bg-disabled);
+    color: var(--button-text-disabled);
+    opacity: var(--opacity-disabled);
+    cursor: not-allowed;
+  }
+
+  /* Focus (keyboard navigation) */
+  &:focus-visible {
+    outline: none;
+    box-shadow: var(--elevation-mood-raised);
+  }
+
+  .icon-wrapper {
+    /* Centers icon and disables pointer events so the button remains clickable */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .spin-icon {
+    /* Icon sizing and spin optimization */
+    width: var(--icon-fab-diameter);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: var(--size-0);
+    font-size: var(--font-size-md);
+    transform-origin: center;
+    /* Improve performance */
+    will-change: transform;
+  }
+
+  /* Direction-aware spin animations (mechanical bounce effect) */
+  &.rotating.rotate-next .spin-icon {
+    animation: spin-next var(--motion-emphasized-duration) var(--motion-emphasized-ease) forwards;
+  }
+
+  &.rotating.rotate-prev .spin-icon {
+    animation: spin-prev var(--motion-emphasized-duration) var(--motion-emphasized-ease) forwards;
+  }
+}
+
+/* Keyframes for spin animation */
+@keyframes spin-next {
+  0% {
+    transform: rotate(0deg);
+  }
+  /* Simulates mechanical inertia */
+  70% {
+    transform: rotate(390deg);
+  }
+  85% {
+    transform: rotate(350deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-prev {
+  0% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(-390deg);
+  }
+  85% {
+    transform: rotate(-350deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Utility class: visually-hidden (for live regions or accessible text only) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

@@ -1,0 +1,304 @@
+/* =========================
+    UI PRIMITIVE CLASSES
+    Surface + Elevation + Z-Layer
+========================= */
+
+/* Surfaces */
+.surface {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.surface-raised {
+    background: var(--surface-raised);
+    box-shadow: var(--elevation-raised);
+}
+
+.surface-overlay {
+    background: var(--surface-overlay);
+    box-shadow: var(--elevation-floating);
+}
+
+/* Page background */
+.page {
+    background: var(--background);
+    z-index: var(--layer-base);
+}
+
+/* Cards */
+.card {
+    background: var(--surface-raised);
+    box-shadow: var(--elevation-raised);
+    z-index: var(--layer-raised);
+}
+
+/* Panels / Sidebars */
+.panel {
+    background: var(--surface-raised);
+    box-shadow: var(--elevation-floating);
+    z-index: var(--layer-base);
+}
+
+/* Sticky Header / FAB */
+.sticky {
+    background: var(--surface-raised);
+    box-shadow: var(--elevation-floating);
+    z-index: var(--layer-floating);
+}
+
+/* Dropdown menus */
+.dropdown {
+    background: var(--surface-raised);
+    box-shadow: var(--elevation-floating);
+    z-index: var(--layer-floating);
+    backdrop-filter: var(--backdrop-blur-low);
+}
+
+/* Tooltip */
+.tooltip {
+    background: var(--surface-overlay);
+    box-shadow: var(--elevation-overlay);
+    z-index: var(--layer-overlay);
+    backdrop-filter: var(--backdrop-blur-medium);
+}
+
+/* Modal */
+.modal {
+    background: var(--surface-overlay);
+    box-shadow: var(--elevation-modal);
+    z-index: var(--layer-modal);
+    backdrop-filter: var(--backdrop-blur-high);
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+    background: var(--surface-overlay);
+    backdrop-filter: var(--backdrop-blur-high);
+    z-index: calc(var(--layer-modal) - 1);
+}
+
+/* Toast */
+.toast {
+    background: var(--surface-overlay);
+    box-shadow: var(--elevation-dreamy);
+    z-index: var(--layer-toast);
+}
+
+/* Token */
+.token {
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+    background: var(--surface-overlay);
+    box-shadow: var(--elevation-raised);
+}
+
+/* Button, interactive state tokens */
+.interactive {
+    background: var(--button-bg, #007bff);
+    color: var(--button-text, #fff);
+    box-shadow: var(--elevation-mood-low);
+    transition:
+        background-color var(--motion-hover-duration) var(--motion-hover-ease),
+        transform var(--motion-hover-duration) var(--motion-hover-ease),
+        box-shadow var(--motion-hover-duration) var(--motion-hover-ease);
+}
+
+.interactive:hover {
+    background: var(--button-bg-hover, #0056b3);
+    box-shadow: var(--elevation-mood-floating);
+}
+
+.interactive:active {
+    background: var(--button-bg-active, #003d80);
+    box-shadow: var(--elevation-mood-high);
+    transform: translateY(1px) scale(0.98);
+}
+
+.interactive:disabled {
+    background: var(--button-bg-disabled, #e0e0e0);
+    color: var(--button-text-disabled, #aaa);
+    cursor: not-allowed;
+}
+
+.interactive:focus {
+    box-shadow: var(--elevation-mood-floating);
+}
+
+.interactive.dragged {
+    box-shadow: var(--elevation-mood-top);
+    filter: blur(var(--blur-motion-md));
+}
+
+/* Example: overlay fade */
+.overlay {
+    opacity: 0;
+    transition:
+        opacity var(--motion-system-duration) var(--motion-system-ease);
+}
+
+.overlay.active {
+    opacity: 1;
+}
+
+/* Elevation primitives */
+.elev-raised   { box-shadow: var(--elevation-raised); }
+.elev-floating { box-shadow: var(--elevation-floating); }
+.elev-overlay  { box-shadow: var(--elevation-overlay); }
+.elev-modal    { box-shadow: var(--elevation-modal); }
+
+/* Layer primitives */
+.layer-base     { z-index: var(--layer-base); }
+.layer-floating { z-index: var(--layer-floating); }
+.layer-overlay  { z-index: var(--layer-overlay); }
+.layer-modal    { z-index: var(--layer-modal); }
+
+
+/* =========================
+    UI PRIMITIVE CLASSES
+    Surface + Elevation + Z-Layer
+========================= */
+
+/* Surfaces */
+.surface {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.surface-raised {
+    background: var(--surface-raised);
+    box-shadow: var(--elevation-raised);
+}
+
+.surface-overlay {
+    background: var(--surface-overlay);
+    box-shadow: var(--elevation-floating);
+}
+
+/* Page background */
+.page {
+    background: var(--background);
+    z-index: var(--layer-base);
+}
+
+/* Cards */
+.card {
+    margin: var(--space-4);
+    padding: var(--space-2) var(--space-4) var(--space-6);
+    background: var(--surface-raised);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    box-shadow: var(--elevation-raised);
+    z-index: var(--layer-raised);
+}
+
+/* Panels / Sidebars */
+.panel {
+    background: var(--surface-raised);
+    box-shadow: var(--elevation-floating);
+    z-index: var(--layer-base);
+}
+
+/* Sticky Header / FAB */
+.sticky {
+    background: var(--surface-raised);
+    box-shadow: var(--elevation-floating);
+    z-index: var(--layer-floating);
+}
+
+/* Dropdown menus */
+.dropdown {
+    background: var(--surface-raised);
+    box-shadow: var(--elevation-floating);
+    z-index: var(--layer-floating);
+    backdrop-filter: var(--backdrop-blur-low);
+}
+
+/* Tooltip */
+.tooltip {
+    background: var(--surface-overlay);
+    box-shadow: var(--elevation-overlay);
+    z-index: var(--layer-overlay);
+    backdrop-filter: var(--backdrop-blur-medium);
+}
+
+/* Modal */
+.modal {
+    background: var(--surface-overlay);
+    box-shadow: var(--elevation-modal);
+    z-index: var(--layer-modal);
+    backdrop-filter: var(--backdrop-blur-high);
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+    background: var(--surface-overlay);
+    backdrop-filter: var(--backdrop-blur-high);
+    z-index: calc(var(--layer-modal) - 1);
+}
+
+/* Toast */
+.toast {
+    background: var(--surface-overlay);
+    box-shadow: var(--elevation-dreamy);
+    z-index: var(--layer-toast);
+}
+
+/* Button, interactive state tokens */
+.interactive {
+    background: var(--button-bg, #007bff);
+    color: var(--button-text, #fff);
+    box-shadow: var(--elevation-mood-low);
+    transition:
+        background-color var(--motion-hover-duration) var(--motion-hover-ease),
+        transform var(--motion-hover-duration) var(--motion-hover-ease),
+        box-shadow var(--motion-hover-duration) var(--motion-hover-ease);
+}
+
+.interactive:hover {
+    background: var(--button-bg-hover, #0056b3);
+    box-shadow: var(--elevation-mood-floating);
+}
+
+.interactive:active {
+    background: var(--button-bg-active, #003d80);
+    box-shadow: var(--elevation-mood-high);
+    transform: translateY(1px) scale(0.98);
+}
+
+.interactive:disabled {
+    background: var(--button-bg-disabled, #e0e0e0);
+    color: var(--button-text-disabled, #aaa);
+    cursor: not-allowed;
+}
+
+.interactive:focus {
+    box-shadow: var(--elevation-mood-floating);
+}
+
+.interactive.dragged {
+    box-shadow: var(--elevation-mood-top);
+    filter: blur(var(--blur-motion-md));
+}
+
+/* Example: overlay fade */
+.overlay {
+    opacity: 0;
+    transition:
+        opacity var(--motion-system-duration) var(--motion-system-ease);
+}
+
+.overlay.active {
+    opacity: 1;
+}
+
+/* Elevation primitives */
+.elev-raised   { box-shadow: var(--elevation-raised); }
+.elev-floating { box-shadow: var(--elevation-floating); }
+.elev-overlay  { box-shadow: var(--elevation-overlay); }
+.elev-modal    { box-shadow: var(--elevation-modal); }
+
+/* Layer primitives */
+.layer-base     { z-index: var(--layer-base); }
+.layer-floating { z-index: var(--layer-floating); }
+.layer-overlay  { z-index: var(--layer-overlay); }
+.layer-modal    { z-index: var(--layer-modal); }

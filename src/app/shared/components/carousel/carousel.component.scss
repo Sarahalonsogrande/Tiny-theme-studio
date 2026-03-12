@@ -1,0 +1,89 @@
+main {
+  padding: var(--space-6);
+
+  .carousel {
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-marker-group: after;
+    anchor-name: --carousel;
+    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none; /* Firefox */
+
+    &::scroll-button(right),
+    &::scroll-button(left) {
+      position: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: var(--btn-fab-diameter);
+      height: var(--btn-fab-diameter);
+      content: '▸';
+      font-family: consolas;
+      font-size: var(--label-fab-diameter);
+      color: var(--color-on-primary);
+      background: var(--color-primary);
+      border: none;
+      border-radius: var(--radius-round);
+      box-shadow: var(--elevation-raised);
+      cursor: pointer;
+      position-anchor: --carousel;
+      position-area: right center;
+      translate: -50%;
+      z-index: var(--layer-floating);
+    }
+
+    &::scroll-button(left) {
+      content: '◂';
+      position-area: left center;
+      translate: 50%;
+    }
+
+    &::scroll-button(right):disabled,
+    &::scroll-button(left):disabled {
+      background: var(--button-bg-disabled);
+      cursor: auto;
+    }
+
+    &::scroll-marker-group {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-1);
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 1rem;
+
+      .carousel-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        flex: 0 0 20rem;
+        aspect-ratio: 5 / 3;
+        height: 75svh;
+        text-align: center;
+        scroll-snap-align: start;
+
+        &::scroll-marker {
+          content: '';
+          width: var(--icon-fab-diameter);
+          height: var(--icon-fab-diameter);
+          background-color: var(--color-primary-weakest);
+          border-radius: var(--radius-round);
+        }
+
+        &::scroll-marker:target-current {
+          background: var(--color-primary);
+        }
+      }
+    }
+  }
+}

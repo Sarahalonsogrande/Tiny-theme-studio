@@ -1,0 +1,339 @@
+/* SEMANTIC COLOR TOKENS (PUBLIC API)
+    See docs/THEMING.md for full design and usage guidance.
+    - Built from primitive tokens
+    - Components MUST use these tokens only
+    - Do not reference primitive tokens in components
+    - All sizing, spacing & radius tokens use the fluid() helper for consistent, responsive scaling.
+*/
+
+/*
+    --fluid: value between $min and $max
+    The result is a clamp() that ensures the value never exceeds the min or max
+*/
+@function fluid($min, $max) {
+  @return clamp(#{$min}, calc(#{$min} + (#{$max} - #{$min}) * var(--fluid)), #{$max});
+}
+
+:root {
+  /* PRIMARY COLORS SCALE */
+  /* Light scale */
+  --color-primary-weakest: hsl(var(--primary-h) var(--primary-s) var(--primary-l-1));
+  --color-primary-weak: hsl(var(--primary-h) var(--primary-s) var(--primary-l-2));
+  --color-primary-base: hsl(var(--primary-h) var(--primary-s) var(--primary-l-3));
+  --color-primary-strong: hsl(var(--primary-h) var(--primary-s) var(--primary-l-4));
+  --color-primary-strongest: hsl(var(--primary-h) var(--primary-s) var(--primary-l-5));
+  /* Alpha scale */
+  --color-primary-a05: hsl(var(--primary-h) var(--primary-s) var(--primary-l-3) / 0.05); /* Halos */
+  --color-primary-a10: hsl(
+    var(--primary-h) var(--primary-s) var(--primary-l-3) / 0.1
+  ); /* Soft background */
+  --color-primary-a20: hsl(
+    var(--primary-h) var(--primary-s) var(--primary-l-3) / 0.2
+  ); /* Hover soft */
+  --color-primary-a30: hsl(
+    var(--primary-h) var(--primary-s) var(--primary-l-3) / 0.3
+  ); /* Borders */
+  --color-primary-a50: hsl(
+    var(--primary-h) var(--primary-s) var(--primary-l-3) / 0.5
+  ); /* Overlays */
+  --color-primary-a70: hsl(
+    var(--primary-h) var(--primary-s) var(--primary-l-3) / 0.7
+  ); /* Emphasis */
+  --color-primary-a90: hsl(
+    var(--primary-h) var(--primary-s) var(--primary-l-3) / 0.9
+  ); /* Almost solid */
+  /* Shorthand */
+  --color-primary: var(--color-primary-base);
+
+  /* ACCENT COLORS SCALE */
+  /* Light scale */
+  --color-accent-weakest: hsl(var(--accent-h) var(--accent-s) var(--accent-l-1));
+  --color-accent-weak: hsl(var(--accent-h) var(--accent-s) var(--accent-l-2));
+  --color-accent-base: hsl(var(--accent-h) var(--accent-s) var(--accent-l-3));
+  --color-accent-strong: hsl(var(--accent-h) var(--accent-s) var(--accent-l-4));
+  --color-accent-strongest: hsl(var(--accent-h) var(--accent-s) var(--accent-l-5));
+  /* Alpha scale */
+  --color-accent-a05: hsl(var(--accent-h) var(--accent-s) var(--accent-l-3) / 0.05); /* Halos */
+  --color-accent-a10: hsl(
+    var(--accent-h) var(--accent-s) var(--accent-l-3) / 0.1
+  ); /* Soft background */
+  --color-accent-a20: hsl(var(--accent-h) var(--accent-s) var(--accent-l-3) / 0.2); /* Hover soft */
+  --color-accent-a30: hsl(var(--accent-h) var(--accent-s) var(--accent-l-3) / 0.3); /* Borders */
+  --color-accent-a50: hsl(var(--accent-h) var(--accent-s) var(--accent-l-3) / 0.5); /* Overlays */
+  --color-accent-a70: hsl(var(--accent-h) var(--accent-s) var(--accent-l-3) / 0.7); /* Emphasis */
+  --color-accent-a90: hsl(
+    var(--accent-h) var(--accent-s) var(--accent-l-3) / 0.9
+  ); /* Almost solid */
+  /* Shorthand */
+  --color-accent: var(--color-accent-base);
+
+  /* HIGHLIGHT COLORS SCALE */
+  /* Light scale */
+  --color-highlight-weakest: hsl(var(--highlight-h) var(--highlight-s) var(--highlight-l-1));
+  --color-highlight-weak: hsl(var(--highlight-h) var(--highlight-s) var(--highlight-l-2));
+  --color-highlight-base: hsl(var(--highlight-h) var(--highlight-s) var(--highlight-l-3));
+  --color-highlight-strong: hsl(var(--highlight-h) var(--highlight-s) var(--highlight-l-4));
+  --color-highlight-strongest: hsl(var(--highlight-h) var(--highlight-s) var(--highlight-l-5));
+  /* Alpha scale */
+  --color-highlight-a05: hsl(
+    var(--highlight-h) var(--highlight-s) var(--highlight-l-3) / 0.05
+  ); /* Halos */
+  --color-highlight-a10: hsl(
+    var(--highlight-h) var(--highlight-s) var(--highlight-l-3) / 0.1
+  ); /* Soft background */
+  --color-highlight-a20: hsl(
+    var(--highlight-h) var(--highlight-s) var(--highlight-l-3) / 0.2
+  ); /* Hover soft */
+  --color-highlight-a30: hsl(
+    var(--highlight-h) var(--highlight-s) var(--highlight-l-3) / 0.3
+  ); /* Borders */
+  --color-highlight-a50: hsl(
+    var(--highlight-h) var(--highlight-s) var(--highlight-l-3) / 0.5
+  ); /* Overlays */
+  --color-highlight-a70: hsl(
+    var(--highlight-h) var(--highlight-s) var(--highlight-l-3) / 0.7
+  ); /* Emphasis */
+  --color-highlight-a90: hsl(
+    var(--highlight-h) var(--highlight-s) var(--highlight-l-3) / 0.9
+  ); /* Almost solid */
+  /* Shorthand */
+  --color-highlight: var(--color-highlight-base);
+
+  /* FEEDBACK COLORS SCALE*/
+  --color-success-weak: hsl(var(--success-h) var(--success-s) var(--primary-l-2));
+  --color-success-base: hsl(var(--success-h) var(--success-s) var(--primary-l-3));
+  --color-success-strong: hsl(var(--success-h) var(--success-s) var(--primary-l-4));
+
+  --color-warning-weak: hsl(var(--warning-h) var(--warning-s) var(--primary-l-2));
+  --color-warning-base: hsl(var(--warning-h) var(--warning-s) var(--primary-l-3));
+  --color-warning-strong: hsl(var(--warning-h) var(--warning-s) var(--primary-l-4));
+
+  --color-danger-weak: hsl(var(--danger-h) var(--danger-s) var(--primary-l-2));
+  --color-danger-base: hsl(var(--danger-h) var(--danger-s) var(--primary-l-3));
+  --color-danger-strong: hsl(var(--danger-h) var(--danger-s) var(--primary-l-4));
+
+  --color-info-weak: hsl(var(--info-h) var(--info-s) var(--primary-l-2));
+  --color-info-base: hsl(var(--info-h) var(--info-s) var(--primary-l-3));
+  --color-info-strong: hsl(var(--info-h) var(--info-s) var(--primary-l-4));
+
+  --color-neutral-weak: hsl(var(--neutral-h) var(--neutral-s) var(--primary-l-2));
+  --color-neutral-base: hsl(var(--neutral-h) var(--neutral-s) var(--primary-l-3));
+  --color-neutral-strong: hsl(var(--neutral-h) var(--neutral-s) var(--primary-l-4));
+
+  /* Shorthands */
+  --color-success: var(--color-success-base);
+  --color-warning: var(--color-warning-base);
+  --color-danger: var(--color-danger-base);
+  --color-info: var(--color-info-base);
+  --color-muted: var(--color-muted-base);
+
+  /* UTILITY COLORS (Avoid in core UI components) */
+  --color-red: hsl(3 78% 45%);
+  --color-orange: hsl(36 100% 50%);
+  --color-yellow: hsl(56 91% 73%);
+  --color-lime: hsl(73 67% 51%);
+  --color-green: hsl(123 38% 57%);
+  --color-azure: hsl(207 90% 61%);
+  --color-klein: hsl(221 94% 37%);
+  --color-magenta: hsl(323 98% 62%);
+  --color-neutral: hsl(200 16% 62%);
+
+  /* SURFACES */
+  --background-l: var(--surface-l-background);
+  --surface-l: var(--surface-l-base);
+  --surface-raised-l: var(--surface-l-raised);
+  --surface-overlay-l: var(--surface-l-overlay);
+  /* surface transparency */
+  --surface-a70: hsl(var(--surface-h) var(--surface-s) var(--surface-l) / 0.7); /* Hover glass */
+  --surface-a85: hsl(var(--surface-h) var(--surface-s) var(--surface-l) / 0.85); /* Glass UI */
+  --surface-a95: hsl(
+    var(--surface-h) var(--surface-s) var(--surface-l) / 0.95
+  ); /* Floating Navbar */
+
+  /* SEMANTIC TOKENS (PUBLIC API — use these in components) */
+  --background: hsl(var(--surface-h) var(--surface-s) var(--background-l));
+  --surface: hsl(var(--surface-h) var(--surface-s) var(--surface-l)); /* Base */
+  --surface-raised: hsl(var(--surface-h) var(--surface-s) var(--surface-raised-l)); /* Cards */
+  --surface-overlay: hsl(var(--surface-h) var(--surface-s) var(--surface-overlay-l)); /* Modals */
+
+  --border-interactive: var(--color-primary-a30);
+  --bg-glass: var(--surface-a85);
+  --glow-soft: var(--color-accent-a20);
+  --highlight-sweep: var(--color-highlight-a30);
+
+  --card-background: var(--surface);
+  --card-mood-background: hsl(
+    var(--primary-h) var(--primary-s) var(--accent-l-4) / var(--opacity-disabled)
+  );
+
+  --text: hsl(var(--surface-h) 12% calc(var(--surface-l) - 68%));
+  --muted: hsl(var(--surface-h) 6% calc(var(--surface-l) - 44%));
+
+  --button-bg: var(--color-primary);
+  --button-text: var(--color-on-primary);
+
+  /* ON-COLORS (absolute foreground colors) */
+  --on-light: hsl(0 0% 10%);
+  --on-dark: hsl(0 0% 100%);
+
+  --color-on-primary: var(--on-dark);
+  --color-on-accent: var(--on-light);
+  --color-on-highlight: var(--on-light);
+  --color-on-surface: var(--on-light);
+
+  --color-on-success: var(--on-dark);
+  --color-on-warning: var(--on-light);
+  --color-on-danger: var(--on-dark);
+
+  /* FONT FAMILIES */
+  --font-family:
+    'Quicksand', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-blockquote:
+    'Baskerville Italic', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading:
+    'Beyond Wonderland', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-accent:
+    'Nunito', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+  /* FLUID RESPONSIVE SCALE --fluid-min 0 / --fluid-max 1:
+    - px range for fluid scaling based on viewport width
+    - Used by fluid() to interpolate responsive values
+  */
+  --fluid-min: 320px; /* Min vw: scale starts */
+  --fluid-max: 1440px; /* Max vw: scale ends */
+  /* 0 = min vw, 1 = max vw, linear interpolation between both */
+  --fluid: clamp(0, (100vw - var(--fluid-min)) / (var(--fluid-max) - var(--fluid-min)), 1);
+
+  /* FLUID TYPOGRAPHY */
+  --font-size-xs: #{fluid(0.75rem, 0.8125rem)}; /* 12px → 13px */
+  --font-size-sm: #{fluid(0.875rem, 0.9375rem)}; /* 14px → 15px */
+  --font-size-base: #{fluid(1rem, 1.0625rem)}; /* 16px → 17px */
+  --font-size-md: #{fluid(1.125rem, 1.25rem)}; /* 18px → 20px */
+  --font-size-lg: #{fluid(1.25rem, 1.5rem)}; /* 20px → 24px */
+  --font-size-xl: #{fluid(1.5rem, 2rem)}; /* 24px → 32px */
+  --font-size-xxl: #{fluid(2rem, 2.75rem)}; /* 32px → 44px */
+  --font-size-emphasized: #{fluid(2rem, 2.75rem)}; /* 32px → 44px */
+
+  --font-weight-regular: 400;
+  --font-weight-bold: 600;
+  --font-weight-black: 800;
+
+  --line-height-tense: #{fluid(0.95, 1.1)}; /* 15.2px → 17.6px */
+  --line-height-tight: #{fluid(1.2, 1.35)}; /* 19.2px → 21.6px */
+  --line-height-base: #{fluid(1.45, 1.6)}; /* 23.2px → 25.6px */
+  --line-height-loose: #{fluid(1.7, 1.85)}; /* 27.2px → 29.6px */
+
+  /* FLUID LETTER-SPACING */
+  --font-letterspacing-0: 0; /* 0px → 0px */
+  --font-letterspacing-1: #{fluid(0.01em, 0.02em)}; /* 0.16px → 0.32px */
+  --font-letterspacing-2: #{fluid(0.02em, 0.04em)}; /* 0.32px → 0.64px */
+  --font-letterspacing-3: #{fluid(0.04em, 0.08em)}; /* 0.64px → 1.28px */
+  --font-letterspacing-4: #{fluid(0.08em, 0.12em)}; /* 1.28px → 1.92px */
+  --font-letterspacing-5: #{fluid(0.12em, 0.18em)}; /* 1.92px → 2.88px */
+  --font-letterspacing-tight: #{fluid(-0.01em, -0.03em)}; /* -0.16px → -0.48px */
+  --font-letterspacing-loose: #{fluid(0.18em, 0.25em)}; /* 2.88px → 4px */
+
+  /* FLUID SPACINGS */
+  --space-0: 0; /* 0px → 0px */
+  --space-1: #{fluid(0.25rem, 0.375rem)}; /* 4px → 6px */
+  --space-2: #{fluid(0.375rem, 0.5rem)}; /* 6px → 8px */
+  --space-3: #{fluid(0.5rem, 0.75rem)}; /* 8px → 12px */
+  --space-4: #{fluid(0.75rem, 1rem)}; /* 12px → 16px */
+  --space-5: #{fluid(1rem, 1.5rem)}; /* 16px → 24px */
+  --space-6: #{fluid(1.5rem, 2rem)}; /* 24px → 32px */
+  --space-7: #{fluid(2rem, 3rem)}; /* 32px → 48px */
+  --space-8: #{fluid(2.5rem, 4rem)}; /* 40px → 64px */
+  --space-9: #{fluid(3.5rem, 6rem)}; /* 56px → 96px */
+  --space-10: #{fluid(5rem, 8rem)}; /* 80px → 128px */
+
+  /* FAB BUTTONS */
+  --btn-fab-diameter: #{fluid(1.5rem, 2.25rem)}; /* 24px → 36px */
+  --icon-fab-diameter: #{fluid(0.75rem, 1.5rem)}; /* 12px → 24px */
+  --label-fab-diameter: #{fluid(1rem, 1.62rem)}; /* 16px → 26px */
+
+  /* UI STATES */
+  --button-bg-hover: var(--color-primary-strong);
+  --button-bg-active: var(--color-primary-strongest);
+  --button-bg-disabled: var(--color-primary-weak);
+  --button-text-disabled: var(--muted);
+  --input-border-focus: var(--color-accent);
+  --input-bg-disabled: var(--surface-raised);
+
+  /* OPACITY / ALPHA */
+  --opacity-subtle: 0.2;
+  --opacity-disabled: 0.5;
+  --opacity-overlay: 0.7;
+
+  --alpha-subtle: 0.12;
+  --alpha-medium: 0.24;
+  --alpha-strong: 0.36;
+  --alpha-stronger: 0.48;
+  --alpha-dreamy: 0.6;
+
+  /* OVERLAY / BACKDROP */
+  --overlay-bg: hsl(
+    var(--surface-h) calc(var(--surface-s) * 0.2) calc(var(--surface-l) * 0.2) /
+      var(--opacity-overlay)
+  );
+
+  /* SURFACE & MOTION BLUR */
+  /* Spatial (glass, overlays, modals, tooltips) */
+  --blur-2xs: 2px;
+  --blur-xs: 4px;
+  --blur-sm: 8px;
+  --blur-md: 12px;
+  --blur-lg: 20px;
+  --blur-xl: 32px;
+  --blur-2xl: 48px;
+
+  /* Motion (drag, swipe, transitions) */
+  --blur-motion-sm: 6px;
+  --blur-motion-md: 12px;
+  --blur-motion-lg: 24px;
+
+  /* Backdrop semantic */
+  --backdrop-blur-low: blur(var(--blur-sm));
+  --backdrop-blur-medium: blur(var(--blur-md));
+  --backdrop-blur-high: blur(var(--blur-lg));
+
+  /* LIGHT SOURCES */
+  --gradient-angle: 90deg;
+  --light-angle: 90deg;
+
+  /* BORDERS */
+  --border-subtle: var(--color-neutral-weak);
+  --border-strong: var(--color-neutral-strong);
+
+  /* FLUID RADIUS */
+  --radius-sm: #{fluid(4px, 8px)};
+  --radius-md: #{fluid(6px, 12px)};
+  --radius-lg: #{fluid(8px, 16px)};
+  --radius-xl: #{fluid(12px, 24px)};
+  --radius-xxl: #{fluid(48px, 96px)};
+
+  --radius-round: 50%;
+
+  /* FLUID UI SIZE SCALE */
+  --size-1: #{fluid(1.5rem, 1.75rem)}; /* 24px → 28px */
+  --size-2: #{fluid(2rem, 2.25rem)}; /* 32px → 36px */
+  --size-3: #{fluid(2.5rem, 2.75rem)}; /* 40px → 44px */
+  --size-4: #{fluid(3rem, 3.25rem)}; /* 48px → 52px */
+  --size-5: #{fluid(3.5rem, 4rem)}; /* 56px → 64px */
+
+  --size-avatar-sm: var(--size-2); /* 32px → 36px */
+  --size-avatar-md: var(--size-3); /* 40px → 44px */
+  --size-avatar-lg: var(--size-4); /* 48px → 52px */
+
+  --size-control-sm: var(--size-2); /* 32px → 36px */
+  --size-control-md: var(--size-3); /* 40px → 44px */
+  --size-control-lg: var(--size-4); /* 48px → 52px */
+
+  --size-swatch: var(--size-2); /* 32px → 36px */
+
+  /* BREAKPOINTS */
+  --breakpoint-xs: 30rem; /* 480px */
+  --breakpoint-sm: 48rem; /* 768px */
+  --breakpoint-md: 64rem; /* 1024px */
+  --breakpoint-lg: 80rem; /* 1280px */
+  --breakpoint-xl: 90rem; /* 1440px */
+}

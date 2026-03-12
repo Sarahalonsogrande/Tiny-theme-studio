@@ -1,0 +1,88 @@
+/**
+ * Font Face Declarations
+ * --------------------------------------------------
+ * Custom font families for the app UI.
+ * - All font files are stored in /public/fonts/...
+ * - Use only the weights/styles actually needed for performance.
+ * - font-display: swap ensures text is visible while fonts load.
+ *
+ * Usage:
+ *   font-family: 'Quicksand', 'Saira', 'Momo', sans-serif;
+ *   Set --font-family in :root for global usage.
+ */
+
+/* Quicksand: main. Highly readable UI app font */
+@font-face {
+    font-family: 'Quicksand';
+    src: url('/fonts/quicksand/Quicksand-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('/fonts/quicksand/Quicksand-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('/fonts/quicksand/Quicksand-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('/fonts/quicksand/Quicksand-ExtraBold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Libre Baskerville Italic: Blockquotes */
+@font-face {
+    font-family: 'Baskerville Italic';
+    src: url('/fonts/libre-baskerville/LibreBaskerville-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Beyond Wonderland: Custom display font for special headings */
+@font-face {
+    font-family: 'Beyond Wonderland';
+    src: url('/fonts/beyond_wonderland/Beyond Wonderland.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Nunito: Custom display font for accent */
+@font-face {
+    font-family: 'Nunito';
+    src: url('/fonts/nunito/static/Nunito-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('/fonts/nunito/static/Nunito-Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Nunito';
+    src: url('/fonts/nunito/static/Nunito-Black.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}

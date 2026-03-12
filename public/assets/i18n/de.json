@@ -1,0 +1,75 @@
+{
+  "buttons": {
+    "save": "speichern",
+    "edit": "bearbeiten",
+    "add": "hinzufügen",
+    "next": "weiter",
+    "back": "zurück",
+    "start": "starten",
+    "finish": "beenden",
+    "skip": "überspringen",
+    "reset": "zurücksetzen"
+  },
+  "aria": {
+    "next": "Zum nächsten Schritt gehen",
+    "back": "Zum vorherigen Schritt zurückkehren",
+    "start": "Prozess starten",
+    "finish": "Abschließen und fortfahren",
+    "skip": "Diesen Schritt überspringen",
+    "close": "Dialog schließen",
+    "openMenu": "Menü öffnen",
+    "submit": "Formular absenden",
+    "cancel": "Abbrechen und zurückkehren",
+    "selectLanguage": "Sprache auswählen",
+    "selectMode": "Modus auswählen",
+    "selectMood": "Stimmung auswählen",
+    "guideButton": "Zur Style-Übersicht gehen"
+  },
+  "appTitles": {
+    "appTitle": "tiny T.S.",
+    "welcomeTitle": "Willkommen",
+    "stylesTitle": "Stile",
+    "swatchesTitle": "Farbmuster"
+  },
+  "welcome": {
+    "cover": {
+      "title": "Tiny Theme Studio",
+      "quote": "Aber wenn ich nicht mehr dieselbe bin, dann ist die nächste Frage: Wer in aller Welt bin ich?\\nAh, DAS ist das große Rätsel! ➰"
+    },
+    "rabbit-hole": {
+      "title": "IM KORRUPTEN KANINCHENBAU",
+      "quote": "Hinunter, hinunter, hinunter… Wird dieser Sturz denn nie ein Ende nehmen?\\nIch frage mich, wie tief ich diesmal gefallen bin."
+    },
+    "angular": {
+      "title": "DIE ENTRY-POINT KATZE",
+      "quote": "— Würdest du mir bitte sagen, welchen Weg ich nehmen soll, um hier hineinzukommen?\\n— Das hängt sehr davon ab, wohin du gelangen willst.\\n— Das ist mir eigentlich egal…"
+    },
+    "html": {
+      "title": "DIE SEMANTIK DER KONIGIN",
+      "quote": "— Und die Moral von der Geschichte ist:\\nKümmere dich um die Semantik, der Sinn ergibt sich von selbst."
+    },
+    "css": {
+      "title": "DAS LAND DER VARIABLEN",
+      "quote": "— Wir sind hier alle verrückt. Ich bin verrückt. Du bist verrückt.\\n— Woher weißt du, dass ich verrückt bin?\\n— Das musst du sein, sonst wärst du nicht hierhergekommen."
+    },
+    "journey": {
+      "title": "DIE REISE",
+      "quote": "Wenn du die Zeit so gut kennen würdest wie ich, würdest du nicht davon sprechen, sie zu verschwenden. Sie ist eine Person.",
+      "text": "Wie Alice, die dem Kaninchen folgt, ist dieses Projekt eine Reise durch eine Welt voller Entscheidungen und Überraschungen.\\nIch fand einen kleinen goldenen Schlüssel und öffnete die Tür, ohne zu wissen, was dahinter lag.\\nEs folgt keinen starren Konventionen und will kein Beispiel für irgendetwas sein: Es ist ein Kaninchenbau, in dem man sich verlieren kann."
+    },
+    "conclusion": {
+      "title": "Sarahs Deklaration",
+      "text": "Ich trank den CSS-Trank und traurige RGBs zerfielen in Lichtstrahlen, mit denen man spielen konnte.\\nAlles färbte sich mit Saturation und Hues, und die Schatten warfen sich wunderschön dort unten."
+    },
+    "guide": {
+      "title": "LEITFADEN",
+      "quote": "Ihr seid nichts weiter als ein Haufen Variablen!",
+      "text": "Ein kleiner visueller Leitfaden dessen, was bisher entstanden ist.",
+      "go": "LOS",
+      "goImgAlt": "Farbpalette"
+    },
+    "footer": {
+      "note": "🚨 Lewis Carroll hat das nie geschrieben, aber wahrscheinlich hätte er es getan, wenn er meinen Hintergrund gehabt hätte."
+    }
+  }
+}

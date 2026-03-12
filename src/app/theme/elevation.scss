@@ -1,0 +1,63 @@
+/* ELEVATION TOKENS (Depth & Layering)
+    See docs/THEMING.md for full design and usage guidance.
+    - Elevation defines spatial hierarchy through shadow projection.
+    - Derived dynamically from the active surface color.
+    - Modes redefine surface hue/saturation/lightness.
+*/
+
+:root {
+    /* SHADOW COLOR - Computed from the current surface color */
+    --shadow-color: var(--surface-h) calc(var(--surface-s) * 0.6) calc(var(--surface-l) * 0.7);
+    
+    --shadow-subtle: hsl(var(--shadow-color) / var(--alpha-subtle));
+    --shadow-medium: hsl(var(--shadow-color) / var(--alpha-medium));
+    --shadow-strong: hsl(var(--shadow-color) / var(--alpha-strong));
+    --shadow-stronger: hsl(var(--shadow-color) / var(--alpha-stronger));
+    --shadow-dream: hsl(var(--shadow-color) / var(--alpha-dreamy));
+
+    --shadow-x: 0px;
+
+    /* SHADOW STACKS - Multi-layered penumbra approximation */
+    --shadow-rest:
+        var(--shadow-x) 0.5px 0.7px var(--shadow-strong),
+        calc(var(--shadow-x) * 1.2) 0.8px 1px -1.2px var(--shadow-strong),
+        calc(var(--shadow-x) * 2) 2px 2.5px -2.5px var(--shadow-strong);
+
+    --shadow-raised:
+        var(--shadow-x) 1px 2px var(--shadow-medium),
+        calc(var(--shadow-x) * 1.5) 2px 4px -1px var(--shadow-strong),
+        calc(var(--shadow-x) * 2) 3px 6px -2px var(--shadow-strong),
+        calc(var(--shadow-x) * 3) 4px 8px -3px var(--shadow-stronger);
+
+    --shadow-floating:
+        var(--shadow-x) 1px 2px var(--shadow-medium),
+        calc(var(--shadow-x) * 1.5) 3px 6px -1px var(--shadow-strong),
+        calc(var(--shadow-x) * 2) 5px 10px -2px var(--shadow-strong),
+        calc(var(--shadow-x) * 3) 8px 16px -3px var(--shadow-stronger);
+
+    --shadow-overlay:
+        var(--shadow-x) 2px 4px var(--shadow-strong),
+        calc(var(--shadow-x) * 1.5) 6px 12px -2px var(--shadow-strong),
+        calc(var(--shadow-x) * 2) 10px 20px -4px var(--shadow-stronger),
+        calc(var(--shadow-x) * 3) 16px 32px -6px var(--shadow-stronger);
+
+    --shadow-modal:
+        var(--shadow-x) 4px 8px var(--shadow-strong),
+        calc(var(--shadow-x) * 1.5) 10px 20px -2px var(--shadow-strong),
+        calc(var(--shadow-x) * 2) 20px 40px -6px var(--shadow-stronger),
+        calc(var(--shadow-x) * 3) 32px 64px -10px var(--shadow-stronger);
+
+    --shadow-dreamy:
+        var(--shadow-x) 2px 4px var(--shadow-dream),
+        calc(var(--shadow-x) * 1.5) 8px 16px var(--shadow-dream),
+        calc(var(--shadow-x) * 2) 16px 32px var(--shadow-dream),
+        calc(var(--shadow-x) * 3) 32px 64px var(--shadow-dream);
+
+    /* ELEVATION TOKENS (PUBLIC API — use these in components) */
+    --elevation-rest: var(--shadow-rest);
+    --elevation-raised: var(--shadow-raised);
+    --elevation-floating: var(--shadow-floating);
+    --elevation-overlay: var(--shadow-overlay);
+    --elevation-modal: var(--shadow-modal);
+    --elevation-dreamy: var(--shadow-dreamy);
+}

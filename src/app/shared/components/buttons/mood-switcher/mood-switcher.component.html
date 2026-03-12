@@ -1,0 +1,14 @@
+<!--
+  Mood SwitcherComponent
+  ---------------------
+  - Uses <app-spin-button> to switch between available moods.
+  - Accessible: ariaLabel input translated (i18n, via ngx-translate).
+  - Icon or text updates dynamically based on the current mood.
+-->
+
+<app-spin-button
+  [values]="moodOptions"
+  [ariaLabel]="'aria.selectMood' | translate"
+  (optionChange)="setMood($event)"
+  [value]="currentMoodOption()"
+/>

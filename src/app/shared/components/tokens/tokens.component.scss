@@ -1,0 +1,13 @@
+.tokens {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: var(--space-3);
+  //padding: 2rem;
+  //background: #faf9f8;
+  //border-radius: 1.2rem;
+  //box-shadow: 0 2px 12px 0 #0001;
+  max-width: var(--breakpoint-sm);
+    //max-height: 90shv;
+
+  //margin: 2rem auto;
+}

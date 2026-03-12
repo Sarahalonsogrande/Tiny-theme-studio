@@ -1,0 +1,46 @@
+/*
+    - Manual Dark Mode
+    - Utilities (spacing helpers etc.ui-)
+*/
+
+/* Manual dark mode (add .theme-dark to body or html) */
+.theme-dark {
+    --background: #181818;
+    --surface: #232323;
+    --surface-raised: #232323;
+    --surface-overlay: #232323;
+    --text: #f5f5f5;
+    --muted: #b0b0b0;
+    --card-background: var(--surface);
+    --button-bg: var(--color-primary);
+    --button-text: var(--color-on-primary);
+}
+
+/* Spacing helpers */
+.ui-mt-1 { margin-top: var(--space-1); }
+.ui-mt-2 { margin-top: var(--space-2); }
+.ui-mt-3 { margin-top: var(--space-3); }
+.ui-mt-4 { margin-top: var(--space-4); }
+.ui-mb-1 { margin-bottom: var(--space-1); }
+.ui-mb-2 { margin-bottom: var(--space-2); }
+.ui-mb-3 { margin-bottom: var(--space-3); }
+.ui-mb-4 { margin-bottom: var(--space-4); }
+.ui-p-1 { padding: var(--space-1); }
+.ui-p-2 { padding: var(--space-2); }
+.ui-p-3 { padding: var(--space-3); }
+.ui-p-4 { padding: var(--space-4); }
+
+/* Border radius helpers */
+.ui-rounded-sm { border-radius: var(--radius-sm); }
+.ui-rounded-md { border-radius: var(--radius-md); }
+.ui-rounded-lg { border-radius: var(--radius-lg); }
+.ui-rounded-xl { border-radius: var(--radius-xlg); }
+.ui-rounded-xl { border-radius: var(--radius-xl); }
+.ui-rounded-xxl { border-radius: var(--radius-xxl); }
+.ui-rounded-round { border-radius: var(--radius-round); }
+
+/* Shadow helpers */
+.ui-shadow-sm { box-shadow: var(--shadow-sm); }
+.ui-shadow-md { box-shadow: var(--shadow-md); }
+.ui-shadow-lg { box-shadow: var(--shadow-lg); }
+.ui-shadow-xl { box-shadow: var(--shadow-xl); }

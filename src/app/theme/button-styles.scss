@@ -1,0 +1,85 @@
+/*
+    Shared Button Styles
+    --------------------------------------------------
+    - Common styles for button-like components (spin-button, toggle-button, home-button)
+    - Includes sizing, alignment, visual feedback
+*/
+
+// Mixin for base FAB button styles (for square buttons like spin and home)
+@mixin fab-button-base {
+  width: var(--btn-fab-diameter);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-round);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition:
+    background-color 0.24s ease,
+    transform 0.15s ease;
+
+  &:active {
+    // Button press feedback
+    transform: scale(0.92);
+  }
+
+  /* Visible focus for keyboard users */
+  &:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+
+  .icon-wrapper {
+    // Centers the icon and disables pointer events
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .icon {
+    // Icon sizing and alignment
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--icon-fab-diameter);
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    transform-origin: center;
+    will-change: transform;
+  }
+}
+
+// Mixin for spin-button specific styles
+@mixin spin-button-styles {
+  background: var(--card-background-accented);
+  border: thin solid var(--color-primary);
+
+  /* Animation tuning local CSS variables*/
+  --spin-duration: calc(900ms * var(--motion-duration));
+  --spin-easing: cubic-bezier(0.22, 1.28, 0.36, 1);
+  --motion-duration: 1;
+}
+
+// Mixin for toggle-button specific styles
+@mixin toggle-button-styles {
+  background: var(--color-primary);
+  height: var(--btn-fab-diameter);
+  aspect-ratio: 2 / 1;
+  padding: clamp(2px, 0.5vw, 6px);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+  /* Prevents label from overflowing and overlapping adjacent elements */
+  margin-inline-end: clamp(6px, 1.5vw, 12px);
+}
+
+// Mixin for home-button specific styles (similar to spin but different animation)
+@mixin home-button-styles {
+  background: var(--card-background-accented);
+  border: thin solid var(--color-primary);
+
+  /* Animation tuning for home (e.g., bounce or fade) */
+  --home-duration: calc(600ms * var(--motion-duration));
+  --home-easing: ease-in-out;
+  --motion-duration: 1;
+}

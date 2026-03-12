@@ -1,0 +1,76 @@
+/* PRIMITIVE TOKENS
+    See docs/THEMING.md for full design and usage guidance.
+    - Define raw color ingredients (H, S, L, RGB)
+    - Can be overridden by modes or moods
+    - SHOULD NOT be used directly by components
+*/
+
+:root {
+    /* COLORS */
+    /* PRIMARY (hue + saturation: overridden by moods) */
+    --primary-h: 0;
+    --primary-s: 0%;
+    /* Raw lightness scale (private helpers) */
+    --primary-l-1: 88%;
+    --primary-l-2: 79%;
+    --primary-l-3: 58%; /* Base */
+    --primary-l-4: 42%;
+    --primary-l-5: 26%;
+
+    /* ACCENT (hue + saturation: overridden by moods) */
+    --accent-h: 0;
+    --accent-s: 0%;
+    /* Raw lightness scale (private helpers) */
+    --accent-l-1: 86%;
+    --accent-l-2: 81%;
+    --accent-l-3: 60%; /* Base */
+    --accent-l-4: 44%;
+    --accent-l-5: 28%;
+
+    /* HIGHLIGHT (hue + saturation: overridden by moods) */
+    --highlight-h: 0;
+    --highlight-s: 0%;
+    /* Raw lightness scale (private helpers) */
+    --highlight-l-1: 92%;
+    --highlight-l-2: 84%;
+    --highlight-l-3: 64%; /* Base */
+    --highlight-l-4: 48%;
+    --highlight-l-5: 32%;
+
+    /* FEEDBACK COLORS */
+    /* SUCCESS (Base ≈ #74c464) */
+    --success-h: 110;
+    --success-s: 45%;
+
+    /* WARNING (Base ≈ #f4a434) */
+    --warning-h: 35;
+    --warning-s: 90%;
+
+    /* DANGER (Base ≈ #e44444) */
+    --danger-h: 0;
+    --danger-s: 75%;
+
+    /* INFO (Base ≈ #296dff) */
+    --info-h: 221;
+    --info-s: 100%;
+
+    /* NEUTRAL (Base ≈ #789eb0) */
+    --neutral-h: 206;
+    --neutral-s: 14%;
+
+    /* SURFACES */
+    --surface-h: 0;
+    --surface-s: 0;
+
+    /* Lightness scale → controlled by MODE only */
+    --surface-l-background: 100%;
+    --surface-l-base: 96%;
+    --surface-l-raised: 100%;
+    --surface-l-overlay: 100%;
+
+    /* Dark equivalents */
+    --surface-l-background-dark: 10%;
+    --surface-l-base-dark: 14%;
+    --surface-l-raised-dark: 18%;
+    --surface-l-overlay-dark: 22%;
+}

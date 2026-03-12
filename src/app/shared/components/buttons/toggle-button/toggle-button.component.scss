@@ -1,0 +1,76 @@
+/*
+    Toggle Button Styles
+    --------------------------------------------------
+    - Styles for a reusable two-option toggle switch
+    - Includes sizing, alignment, visual feedback, and smooth toggle transition
+    - Supports decorative icons/images for off/on states
+    - Accessible: focus, checked state, and clear visual cues
+*/
+
+.toggle-button {
+    /* Main container: background, size, padding, and border */
+    position: relative;
+    height: var(--btn-fab-diameter);
+    aspect-ratio: 2 / 1;
+    padding: var(--space-0);
+    background: var(--surface-overlay);
+    border: 0;
+    border-radius: var(--radius-xl);
+    outline: 1px solid var(--color-primary);
+    overflow: hidden;
+    box-shadow: var(--elevation-mood-dreamy);
+    transition:
+        box-shadow var(--motion-system-duration) var(--motion-system-ease),
+        outline var(--motion-hover-duration) var(--motion-hover-ease);
+
+    /* Decorative toggle icons/images */
+    .toggle-icon {
+        position: absolute;
+        // display: block;
+        width: var(--icon-fab-diameter);
+        aspect-ratio: 1;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none; /* Ignore pointer events, purely visual */
+        // z-index: 0;
+    }
+
+    .icon-off { left: var(--space-2); }
+    .icon-on { right: var(--space-2); }
+
+    /* Hide the native checkbox; visual handled by label */
+    input {
+        display: none;
+    }
+
+    /* Label acts as the toggle handle */
+    label {
+        position: absolute;
+        width: var(--label-fab-diameter);
+        aspect-ratio: 1;
+        top: 50%;
+        left: var(--space-2);
+        transform: translateY(-50%) translateX(0);
+        background: var(--button-bg-disabled);
+        border-radius: var(--radius-round);
+        box-shadow: var(--elevation-rest);
+        transition:
+            left var(--motion-system-duration) var(--motion-system-ease),
+            background var(--motion-system-duration) var(--motion-system-ease);
+        cursor: pointer;
+        //z-index: var(--layer-floating);
+
+    }
+
+    /* When checked, move the label to the opposite side */
+    input:checked + label {
+        left: calc(100% - var(--icon-fab-diameter) - var(--space-3));
+        background: var(--button-bg);
+    }
+
+    /* Outer container visual feedback when checked */
+    &.checked {
+        outline: 0.5px solid var(--color-primary);
+        box-shadow: var(--elevation-mood-effect);
+    }
+}

@@ -1,0 +1,14 @@
+<!--
+  ModeToggleComponent
+  ---------------------
+  - Uses <app-toggle-button> to switch between available modes.
+  - Accessible: ariaLabel input translated (i18n, via ngx-translate).
+  - Icon or text updates dynamically based on the current mode.
+-->
+
+<app-toggle-button
+  [values]="modeOptions"
+  [ariaLabel]="'aria.selectMode' | translate"
+  (optionChange)="setMode($event)"
+  [value]="currentModeOption()"
+/>
