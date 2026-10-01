@@ -43,6 +43,14 @@ export const NAV_OPTIONS = [
         img: '/images/home.svg',
         route: '/welcome'
     },
+    {
+        value: 'guide',
+        name: 'Guide',
+        label: 'navigation.guide',
+        icon: '🎨',
+        img: '/images/palette.svg',
+        route: '/carousel'
+    },
     // {
     //     value: 'forward',
     //     name: 'Forward',
@@ -95,40 +103,55 @@ export const DEFAULT_MODE: ModeMode = MODE_OPTIONS[0].value;
  */
 export const MOOD_OPTIONS = [
     {
-        value: 'birthday',
-        name: 'Birthday',
-        label: 'mood.birthday',
+        value: 'rabbit',
+        name: 'Rabbit',
+        label: 'mood.rabbit',
+        icon: '🐰',
+        img: '/images/rabbit.svg',
+    },
+    {
+        value: 'bottle',
+        name: 'Bottle',
+        label: 'mood.bottle',
+        icon: '🍶',
+        img: '/images/bottle.svg',
+    },
+    {
+        value: 'cake',
+        name: 'Cake',
+        label: 'mood.cake',
         icon: '🎂',
         img: '/images/cake.svg',
     },
     {
-        value: 'leafy',
-        name: 'Leafy',
-        label: 'mood.leafy',
-        icon: '🍃',
-        img: '/images/leaf.svg',
+        value: 'caterpillar',
+        name: 'Caterpillar',
+        label: 'mood.caterpillar',
+        icon: '🐛',
+        img: '/images/caterpillar.svg',
     },
     {
-        value: 'flowery',
-        name: 'Flowery',
-        label: 'mood.flowery',
-        icon: '💮',
-        img: '/images/flowers.svg',
+        value: 'cat',
+        name: 'Cat',
+        label: 'mood.cat',
+        icon: '🐱',
+        img: '/images/cat.svg',
     },
     {
-        value: 'tiger',
-        name: 'Tiger',
-        label: 'mood.tiger',
-        icon: '🐯',
-        img: '/images/tiger.svg',
+        value: 'queen',
+        name: 'Queen',
+        label: 'mood.queen',
+        icon: '❤️',
+        img: '/images/queen.svg',
     },
     {
-        value: 'ocean',
-        name: 'Ocean',
-        label: 'mood.ocean',
-        icon: '🐟',
-        img: '/images/ocean.svg',
-    }
+        value: 'lobster',
+        name: 'Lobster',
+        label: 'mood.lobster',
+        icon: '🦞',
+        img: '/images/lobster.svg',
+    },
+
 ] as const satisfies readonly SwitcherOption[];
 
 export type MoodOption = typeof MOOD_OPTIONS[number];

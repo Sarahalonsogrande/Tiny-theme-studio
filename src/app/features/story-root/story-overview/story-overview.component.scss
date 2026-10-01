@@ -1,0 +1,81 @@
+.pin-wrap-sticky {
+    /* Stick to Top */
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    .pin-wrap {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: var(--space-4);
+        height: 100vh;
+        width: max-content;
+
+        /* Hook animation */
+        will-change: transform;
+        animation: move linear both;
+        /* Link animation to view-timeline */
+        animation-timeline: --overview;
+        animation-range: entry 0% exit 100%;
+
+        article {
+            display: grid;
+            place-content: center;
+            width: 100vw;
+            height: 100svh;
+            padding: var(--space-8);
+            view-timeline-name: --panel;
+            view-timeline-axis: inline;
+
+            img {
+                height: 100%;
+                width: 100%;
+                max-width: 100%;
+                object-fit: fill;
+                height: min(100vh, 64rem);
+            }
+        }
+    }
+}
+
+@keyframes move {
+    to {
+        /* Move horizontally so right edge is aligned against viewport */
+        transform: translateX(calc(-100% + 100vw));
+    }
+}
+
+@keyframes text {
+    from {
+        background-size: 0 100%;
+    }
+    to {
+        background-size: 100% 100%;
+    }
+}
+
+/* Fallback: no view-timeline support -> keep a usable horizontal scroller */
+@supports not (animation-timeline: --page) {
+  .pin-wrap-sticky {
+    position: relative;
+    height: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+  }
+
+  .pin-wrap {
+    height: auto;
+    min-height: 100vh;
+    animation: none;
+    transform: none;
+  }
+
+  .pin-wrap > * {
+    scroll-snap-align: start;
+  }
+}

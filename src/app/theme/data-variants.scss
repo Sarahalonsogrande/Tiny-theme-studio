@@ -1,0 +1,296 @@
+
+// ─── Variant animations ────────────────────────────────────────────────────
+// Each data-variant overrides only the animation-name for h1.
+// animation-timeline, animation-range and all other styles are inherited.
+
+// fall — scope-hole: cae desde arriba como en la madriguera
+section[data-variant='fall'] header h1 {
+  animation-name: variant-fall;
+  transform-origin: top center;
+}
+@keyframes variant-fall {
+  0% {
+    opacity: 0;
+    transform: translateY(-80px) scale(1.15);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.9);
+  }
+}
+
+// slide — pool-types: fluye desde la izquierda
+section[data-variant='slide'] header h1 {
+  animation-name: variant-slide;
+  transform-origin: center left;
+}
+@keyframes variant-slide {
+  0% {
+    opacity: 0;
+    transform: translateX(-70px);
+  }
+  25% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+}
+
+// glitch — ai-race: snap eléctrico
+section[data-variant='glitch'] header h1 {
+  animation-name: variant-glitch;
+}
+@keyframes variant-glitch {
+  0% {
+    opacity: 0;
+    transform: skewX(12deg) scale(1.05);
+  }
+  8% {
+    opacity: 1;
+    transform: skewX(-6deg) scale(1);
+  }
+  12% {
+    opacity: 0;
+    transform: skewX(4deg);
+  }
+  18% {
+    opacity: 1;
+    transform: skewX(0deg) scale(1);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// pixel — rabbit-grid: converge desde el espacio
+section[data-variant='pixel'] header h1 {
+  animation-name: variant-pixel;
+  transform-origin: center;
+}
+@keyframes variant-pixel {
+  0% {
+    opacity: 0;
+    letter-spacing: 1.5em;
+    transform: scale(0.85);
+  }
+  30% {
+    opacity: 1;
+    letter-spacing: var(--font-letterspacing-4);
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// blur — error-caterpillar: emerge del sueño borroso
+section[data-variant='blur'] header h1 {
+  animation-name: variant-blur;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+  -webkit-background-clip: unset;
+  color: var(--color-highlight);
+}
+@keyframes variant-blur {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(1.08);
+  }
+  30% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0;
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// zoom — bootstrap-pepper: explota desde el centro
+section[data-variant='zoom'] header h1 {
+  animation-name: variant-zoom;
+  transform-origin: center;
+}
+@keyframes variant-zoom {
+  0% {
+    opacity: 0;
+    transform: scale(2.2);
+  }
+  25% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
+
+// spin — mad-teatime: entra torcido
+section[data-variant='spin'] header h1 {
+  animation-name: variant-spin;
+  transform-origin: center;
+}
+@keyframes variant-spin {
+  0% {
+    opacity: 0;
+    transform: rotate(-15deg) scale(0.9);
+  }
+  25% {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(8deg);
+  }
+}
+
+// rise — queens-croquet: surge majestuosa desde abajo
+section[data-variant='rise'] header h1 {
+  animation-name: variant-rise;
+  transform-origin: bottom center;
+}
+@keyframes variant-rise {
+  0% {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+// drift — turtle-semantic: muy suave, pausado
+section[data-variant='drift'] header h1 {
+  animation-name: variant-drift;
+  animation-range: enter 0% cover 40%;
+}
+@keyframes variant-drift {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// bounce — lobster-quadrille: saltarín, bailable
+section[data-variant='bounce'] header h1 {
+  animation-name: variant-bounce;
+  transform-origin: center;
+}
+@keyframes variant-bounce {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+  30% {
+    transform: scale(0.95);
+  }
+  38% {
+    transform: scale(1.04);
+  }
+  44% {
+    transform: scale(1);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// reveal — who-stole: se desvela desde la derecha
+section[data-variant='reveal'] header h1 {
+  animation-name: variant-reveal;
+  transform-origin: center right;
+}
+@keyframes variant-reveal {
+  0% {
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    transform: translateX(30px);
+  }
+  30% {
+    opacity: 1;
+    clip-path: inset(0 0% 0 0);
+    transform: translateX(0);
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+// soft — declaration: fundido gentil, puro
+section[data-variant='soft'] header h1 {
+  animation-name: variant-soft;
+}
+@keyframes variant-soft {
+  0% {
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}

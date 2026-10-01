@@ -1,0 +1,23 @@
+<!--
+    NavButtonComponent
+    -------------------
+    - Minimal floating action button for navigating.
+    - Wraps SpinButtonComponent.
+    - Accessible: ariaLabel describes the action for screen readers (i18n-friendly).
+    - See /docs/THEMING.md for design and accessibility guidelines.
+-->
+
+@if (option(); as opt) {
+    <app-spin-button
+        [values]="[opt]"
+        [value]="opt"
+        [ariaLabel]="ariaLabel()"
+        [disabled]="disabled()"
+        (click)="go(opt)"
+    />
+    <!-- @if (alert()) {
+                    <span class="coming-soon-alert" role="status">
+                {{ button.statusText | translate }}
+            </span>
+    } -->
+}

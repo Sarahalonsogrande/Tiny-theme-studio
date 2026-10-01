@@ -8,7 +8,8 @@
     "start": "starten",
     "finish": "beenden",
     "skip": "überspringen",
-    "reset": "zurücksetzen"
+    "reset": "zurücksetzen",
+    "comingSoon": "\uD83D\uDEA7 Demnächst"
   },
   "aria": {
     "next": "Zum nächsten Schritt gehen",
@@ -33,7 +34,7 @@
   },
   "welcome": {
     "cover": {
-      "title": "Tiny Theme Studio",
+      "title": "Das Land der Variablen",
       "quote": "Aber wenn ich nicht mehr dieselbe bin, dann ist die nächste Frage: Wer in aller Welt bin ich?\\nAh, DAS ist das große Rätsel! ➰"
     },
     "rabbit-hole": {
@@ -69,7 +70,7 @@
       "goImgAlt": "Farbpalette"
     },
     "footer": {
-      "note": "🚨 Lewis Carroll hat das nie geschrieben, aber wahrscheinlich hätte er es getan, wenn er meinen Hintergrund gehabt hätte."
+      "note": "Lewis Carroll hat das nie geschrieben, aber wahrscheinlich hätte er es getan, wenn er meinen Hintergrund gehabt hätte."
     }
   }
 }

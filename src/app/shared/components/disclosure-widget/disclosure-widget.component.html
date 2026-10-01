@@ -1,0 +1,12 @@
+<details class="details" [attr.name]="name()" [open]="isOpen()">
+    <summary class="details-summary">
+        {{ summary() }}
+    </summary>
+    <div class="details-content">
+        <p>{{ detailsContent() }}</p>
+        <ng-content />
+        <a [routerLink]="route()">{{ detailsLink() }}</a>
+    </div>
+</details>
+
+

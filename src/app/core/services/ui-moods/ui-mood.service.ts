@@ -10,7 +10,7 @@
  * - Keep constructor SSR-safe; call `init()` only in the browser.
  *
  * Example usage:
- *   uiMoodService.setMood('ocean');
+ *   uiMoodService.setMood('cat');
  *   const moodSignal = uiMoodService.mood;
  *   const isDefault = uiMoodService.isDefaultMood();
  */
@@ -60,7 +60,7 @@ export class UiMoodService {
     init(): void {
         if (!isPlatformBrowser(this.platformId)) return;
 
-        // 1) Default mood ('birthday') is applied when no stored preference exists.
+        // 1) Default mood ('rabbit') is applied when no stored preference exists.
         let stored: string | null = null;
         try { stored = localStorage.getItem(this.moodKey); } catch (e) { stored = null; }
 

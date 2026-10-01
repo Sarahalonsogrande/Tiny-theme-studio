@@ -29,6 +29,9 @@ export class SpinButtonComponent {
   // Optional route info, can be a string or array
   route = input<string | any[]>('');
 
+  // Disabled state passed by parent components.
+  disabled = input<boolean>(false);
+
   // The currently selected option.
   value = input<SwitcherOption | null>(null);
 
@@ -91,7 +94,7 @@ export class SpinButtonComponent {
    */
   onSwitch(): void {
     // Prevents triggering a new switch while an animation is ongoing.
-    if (this.isRotating()) return;
+    if (this.disabled() || this.isRotating()) return;
     const vals = this.values();
 
     // Require at least 2 options to cycle

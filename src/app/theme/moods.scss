@@ -3,11 +3,49 @@
     See docs/THEMING.md for full design and usage guidance.
    * - Define the emotional / brand color direction.
    * - Only change hue/saturation, do not change luminosity.
-   * - RGB helpers.
+   * - Customized light angle & shadow-x for every Mood.
  */
 
-/* BIRTHDAY mood (Default) */
-:root[data-mood='birthday'] {
+/* RABBIT Mood (default) */
+:root[data-mood='rabbit'] {
+    /* Primary ≈ #a99d7e */
+    --primary-h: 43;
+    --primary-s: 20%;
+
+    /* Accent ≈ #ad8585 */
+    --accent-h: 0;
+    --accent-s: 20%;
+
+    /* Highlight ≈ #c67acd */
+    --highlight-h: 295;
+    --highlight-s: 45%;
+
+    /* Mood lights */
+    --light-angle: 210deg;
+    --shadow-x: 1px;
+}
+
+ /* BOTTLE Mood */
+:root[data-mood='bottle'] {
+    /* Primary ≈ #af44ca */
+    --primary-h: 288;
+    --primary-s: 56%;
+
+    /* Accent ≈ #e64c9c */
+    --accent-h: 329;
+    --accent-s: 75%;
+
+    /* Highlight ≈ #dece68 */
+    --highlight-h: 52;
+    --highlight-s: 64%;
+
+    /* Mood lights */
+    --light-angle: 60deg;
+    --shadow-x: -2px;
+}
+
+/* CAKE Mood */
+:root[data-mood='cake'] {
     /* Primary ≈ #D45498 */
     --primary-h: 328;
     --primary-s: 60%;
@@ -20,20 +58,14 @@
     --highlight-h: 150;
     --highlight-s: 49%;
 
-    /* RGB helpers used by Alpha helpers */
-    --primary-rgb: 212 84 152;
-    --accent-rgb: 222 122 104;
-    --highlight-rgb: 118 208 163;
-
     /* Mood lights */
-    --gradient-angle: 135deg;
     --light-angle: 135deg;
     --shadow-x: -2px;
     --light-x: 50px;
 }
 
-/* LEAFY mood */
-:root[data-mood='leafy'] {
+/* CATERPILLAR Mood */
+:root[data-mood='caterpillar'] {
     /* Primary ≈ #5fc85f*/
     --primary-h: 120;
     --primary-s: 49%;
@@ -47,72 +79,13 @@
     --highlight-h: 329;
     --highlight-s: 58%;
 
-    /* RGB helpers used by Alpha helpers */
-    --primary-rgb: 95 200 95;
-    --accent-rgb: 178 206 100;
-    --highlight-rgb: 216 110 165;
-
     /* Mood lights */
-    --gradient-angle: 210deg;
     --light-angle: 210deg;
     --shadow-x: 1px;
-
 }
 
-/* FLOWERY mood */
-:root[data-mood='flowery'] {
-    /* Primary ≈ #af44ca */
-    --primary-h: 288;
-    --primary-s: 56%;
-
-    /* Accent ≈ #e64c9c */
-    --accent-h: 329;
-    --accent-s: 75%;
-
-    /* Highlight ≈ #dece68 */
-    --highlight-h: 52;
-    --highlight-s: 64%;
-
-    /* RGB helpers used by Alpha helpers */
-    --primary-rgb: 175 68 202;
-    --accent-rgb: 230 76 156;
-    --highlight-rgb: 222 206 104;
-
-    /* Mood lights */
-    --gradient-angle: 60deg;
-    --light-angle: 60deg;
-    --shadow-x: -2px;
-}
-
-/* TIGER mood */
-:root[data-mood='tiger'] {
-    /* Primary ≈ #d07157 */
-    --primary-h: 13;
-    --primary-s: 56%;
-
-    /* Accent ≈ #e8b84a */
-    --accent-h: 42;
-    --accent-s: 77%;
-
-    /* Highlight ≈ #6891df */
-    --highlight-h: 219;
-    --highlight-s: 65%;
-
-    /* RGB helpers used by Alpha helpers */
-    --primary-rgb: 208 113 87;
-    --accent-rgb: 232 184 74;
-    --highlight-rgb: 104 145 223;
-
-    /* Mood lights */
-    --gradient-angle: 300deg;
-    --light-angle: 300deg;
-    --shadow-x: 2px;
-
-    //--color-on-primary: var(--on-light);
-}
-
-/* OCEAN mood */
-:root[data-mood='ocean'] {
+/* CAT Mood */
+:root[data-mood='cat'] {
     /* Primary ≈ #4266e6 */
     --primary-h: 227;
     --primary-s: 77%;
@@ -125,13 +98,45 @@
     --highlight-h: 21;
     --highlight-s: 69%;
 
-    /* RGB helpers used by Alpha helpers */
-    --primary-rgb: 66 102 230;
-    --accent-rgb: 90 208 216;
-    --highlight-rgb: 227 144 100;
-
     /* Mood lights */
-    --gradient-angle: 180deg;
     --light-angle: 180deg;
     --shadow-x: 1px;
+}
+
+/* QUEEN Mood */
+:root[data-mood='queen'] {
+    /* Primary ≈ #e53935 */
+    --primary-h: 4;
+    --primary-s: 75%;
+
+    /* Accent ≈ #ff7043 */
+    --accent-h: 14;
+    --accent-s: 100%;
+
+    /* Highlight ≈ #a2d8e6 */
+    --highlight-h: 192;
+    --highlight-s: 38%;
+
+    /* Mood lights */
+    --light-angle: 45deg;
+    --shadow-x: 0px;
+}
+
+/* LOBSTER Mood */
+:root[data-mood='lobster'] {
+    /* Primary ≈ #d07157 */
+    --primary-h: 13;
+    --primary-s: 56%;
+
+    /* Accent ≈ #e8b84a */
+    --accent-h: 42;
+    --accent-s: 77%;
+
+    /* Highlight ≈ #6891df */
+    --highlight-h: 219;
+    --highlight-s: 65%;
+
+    /* Mood lights */
+    --light-angle: 300deg;
+    --shadow-x: 2px;
 }

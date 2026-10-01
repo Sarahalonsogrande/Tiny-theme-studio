@@ -87,8 +87,8 @@ El DOM es el puente entre navegador y runtime Angular.
 ### Mood (Identidad Cromática)
 
 - Personalidad visual independiente de la luminosidad
-- Ejemplos: `tiger`, `flowery`, `leafy`, `birthday`, `ocean`
-- Aplicado como: `<html data-mood="ocean">`
+- Ejemplos: `rabbit`, `bottle`, `cake`, `catepillar`, `cat`
+- Aplicado como: `<html data-mood="cat">`
 - Afecta solo tokens semánticos
 
 ### Language (Idioma)
@@ -116,7 +116,7 @@ El DOM es el puente entre navegador y runtime Angular.
 **Ejemplo resultado:**
 
 ```html
-<html data-mode="dark" data-mood="ocean" lang="es"></html>
+<html data-mode="dark" data-mood="cat" lang="es"></html>
 ```
 
 **Script:**
@@ -124,7 +124,7 @@ El DOM es el puente entre navegador y runtime Angular.
 ```js
 (function () {
   var allowedModes = ['light', 'dark'];
-  var allowedMoods = ['birthday', 'leafy', 'flowery', 'tiger', 'ocean'];
+  var allowedMoods = ['rabbit', 'bottle', 'cake', 'catepillar', 'cat', 'queen', 'lobster'];
   // ...existing code...
 })();
 ```
@@ -234,10 +234,10 @@ Garantiza continuidad entre boot y runtime.
 - En consola:
   ```js
   localStorage.setItem('ui-mode', 'dark');
-  localStorage.setItem('ui-mood', 'ocean');
+  localStorage.setItem('ui-mood', 'cat');
   location.reload();
   ```
-- Tras recarga: `<html data-mode="dark" data-mood="ocean">`
+- Tras recarga: `<html data-mode="dark" data-mood="cat">`
 
 3️⃣ **Toggle en Runtime**
 
@@ -388,8 +388,8 @@ The DOM acts as the bridge between the browser and Angular runtime.
 ### Mood (Chromatic Identity)
 
 - Defines visual personality independent of luminosity
-- Examples: `tiger`, `flowery`, `leafy`, `birthday`, `ocean`
-- Applied as: `<html data-mood="ocean">`
+- Examples: `rabbit`, `bottle`, `cake`, `catepillar`, `cat`
+- Applied as: `<html data-mood="cat">`
 - Only affects semantic tokens (not layout)
 
 ### Language
@@ -417,7 +417,7 @@ The DOM acts as the bridge between the browser and Angular runtime.
 **Example result:**
 
 ```html
-<html data-mode="dark" data-mood="ocean" lang="es"></html>
+<html data-mode="dark" data-mood="cat" lang="es"></html>
 ```
 
 **Script:**
@@ -425,7 +425,7 @@ The DOM acts as the bridge between the browser and Angular runtime.
 ```js
 (function () {
   var allowedModes = ['light', 'dark'];
-  var allowedMoods = ['birthday', 'leafy', 'flowery', 'tiger', 'ocean'];
+  var allowedMoods = ['rabbit', 'bottle', 'cake', 'catepillar', 'cat', 'queen', 'lobster'];
   // ...existing code...
 })();
 ```
@@ -535,10 +535,10 @@ Ensures continuity between boot and runtime.
 - In console:
   ```js
   localStorage.setItem('ui-mode', 'dark');
-  localStorage.setItem('ui-mood', 'ocean');
+  localStorage.setItem('ui-mood', 'cat');
   location.reload();
   ```
-- After reload: `<html data-mode="dark" data-mood="ocean">`
+- After reload: `<html data-mode="dark" data-mood="cat">`
 
 3️⃣ **Toggle at Runtime**
 

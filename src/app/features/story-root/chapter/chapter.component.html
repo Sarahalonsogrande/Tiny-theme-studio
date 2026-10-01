@@ -1,0 +1,23 @@
+<article class="chapter" [id]="chapter().id" [attr.data-variant]="chapter().variant">
+    <header>
+        <h2>{{ chapter().chapter }}</h2>
+        <h1 [attr.aria-label]="chapter().titleAriaLabel">{{ chapter().titleKey | translate }}</h1>
+
+        <blockquote [innerHTML]="chapter().quoteKey | translate | linebreaks"></blockquote>
+
+        <!-- <p [innerHTML]="chapter().textKey | translate | linebreaks"></p> -->
+        @if (chapter().music; as music) {
+        <app-music-widget [title]="music?.title ?? ''" [album]="music?.album ?? ''" [src]="music?.src ?? ''">
+        </app-music-widget>
+        }
+
+        @if (chapter().button; as button) {
+        <nav class="go-button-container">
+            <app-nav-button navValue="guide" [disabled]="true" class="go-button" />
+            <span class="coming-soon-alert" role="status">
+                {{ button.statusText | translate }}
+            </span>
+        </nav>
+        }
+    </header>
+</article>

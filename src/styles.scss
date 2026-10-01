@@ -12,6 +12,7 @@
 
 /* Motion, elevation, effects */
 @use './app/theme/motion' as *;
+@use './app/theme/motion-primitives' as *;
 @use './app/theme/elevation' as *;
 @use './app/theme/effects' as *;
 @use './app/theme/layer' as *;
@@ -26,116 +27,124 @@
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-/* Full height + flex layout */
-html,
-body {
-    /* Fill full viewport height */
-    height: 100%;
-    height: 100svh;
-    font-family: var(--font-family, Arial, sans-serif);
-    font-size: var(--font-size-base, 1rem);
-    line-height: var(--line-height-base, 1.5);
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: var(--background, #fff);
-    color: var(--text, #0b0b0b);
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-    min-height: 100%;
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    color: inherit;
-    background: inherit;
+  // min-height: 100%;
+  // min-height: 100svh;
+  min-block-size: 100%;
+  min-block-size: 100svh;
+  margin: 0;
+  color: var(--text, #0b0b0b);
+  font-family: var(--font-family, Arial, sans-serif);
+  font-size: var(--font-size-base, 1rem);
+  line-height: var(--line-height-base, 1.5);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--background, #fff);
 }
 
 app-root {
-    /* Fill available space */
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    min-height: 100svh;
+  /* Fill available space */
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
 }
 
 /* Transitions for theme changes on high-level containers */
 body,
 app-root,
 .theme-transition {
-    transition:
-        background-color var(--transition-smooth),
-        color var(--transition-smooth);
+  transition:
+    background-color var(--transition-smooth),
+    color var(--transition-smooth);
 }
 
 /* Utility to animate theme changes. Add the class and remove after transition ends. */
 .theme-transition {
-    will-change: background-color, color;
+  will-change: background-color, color;
 }
 
 /* Fluid responsive typograpy */
 h1,
 h2,
 h3 {
-    font-family: var(--font-heading, Arial, sans-serif);
-    font-weight: 400;
-    color: var(--text, #0b0b0b);
-    line-height: var(--line-height-base, 1rem);
+  font-family: var(--font-heading, Arial, sans-serif);
+  font-weight: 400;
+  color: var(--text, #0b0b0b);
+  line-height: var(--line-height-base, 1rem);
 }
 
 h1 {
-    font-size: var(--font-size-xl, 1.8rem);
-    font-weight: 800;
+  font-size: var(--font-size-xl, 1.8rem);
+  font-weight: 800;
 }
 
 h2 {
-    font-size: var(--font-size-lg, 1.4rem);
-    font-weight: 600;
+  font-size: var(--font-size-lg, 1.4rem);
+  font-weight: 600;
 }
 
 h3 {
-    font-size: var(--font-size-md, 1.18rem);
+  font-size: var(--font-size-md, 1.18rem);
 }
 
 p,
 blockquote {
-    //max-width: 60ch;
-    word-break: break-word;
-    font-size: var(--font-size-base, 1rem);
+  //max-width: 60ch;
+  word-break: break-word;
+  font-size: var(--font-size-base, 1rem);
 }
 
 blockquote {
-    font-family: var(--font-blockquote);
+  font-size: var(--font-size-sm);
+  font-family: var(--font-blockquote);
+  font-weight: 400;
+  color: var(--muted);
+  font-style: italic;
+  letter-spacing: var(--font-letterspacing-2);
+  quotes: '\201C' '\201D' '\2018' '\2019';
+}
+
+blockquote::before {
+  content: open-quote;
+}
+
+blockquote::after {
+  content: close-quote;
 }
 
 img,
 picture,
 video,
 canvas {
-    display: block;
-    max-width: 100%;
+  display: block;
+  max-width: 100%;
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 ul {
-    list-style-type: none;
+  list-style-type: none;
 }
 
 /* Button, input... */
 button {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 /* Form elements & Focus */
@@ -143,78 +152,108 @@ input,
 button,
 select,
 textarea {
-    font-family: inherit;
-    color: var(--text, #0b0b0b);
-    accent-color: var(--color-accent);
+  font-family: inherit;
+  color: var(--text, #0b0b0b);
+  accent-color: var(--color-accent);
 }
 
 input:focus-visible,
 textarea:focus-visible,
 select:focus-visible {
-    outline: none;
-    border-color: var(--color-primary);
-    /* Strong focus for form controls */
-    box-shadow: var(--elevation-floating);
+  outline: none;
+  border-color: var(--color-primary);
+  /* Strong focus for form controls */
+  box-shadow: var(--elevation-floating);
 }
 
 label {
-    display: grid;
-    gap: var(--space-2);
-    color: var(--color-primary);
-    text-transform: uppercase;
+  display: grid;
+  gap: var(--space-2);
+  color: var(--color-primary);
+  text-transform: uppercase;
+}
+
+/* Scroll Styles */
+html::-webkit-scrollbar {
+  width: var(--size-1);
+  background: transparent;
+}
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+  // border-left: 1px solid var(--color-highlight);
+  border-right: 4px solid var(--color-highlight-weak);
+}
+
+html::-webkit-scrollbar-thumb {
+  background-image: url("/images/fall.svg");
+  //background-position: 0% 20%;
+  background-repeat: no-repeat;
+  background-size: var(--space-5);
+}
+
+html:hover::-webkit-scrollbar-track {
+  background: var(--bg-glass);
 }
 
 /* Helper: focus ring using primary with slight transparency */
 .focus-ring {
-    outline: none;
-    /* Subtle focus for custom components */
-    box-shadow: var(--elevation-mood-raised);
+  outline: none;
+  /* Subtle focus for custom components */
+  box-shadow: var(--elevation-mood-raised);
 }
 
-/* RESPECT REDUCED MOTION */
-@media (prefers-reduced-motion: reduce) {
-    :root {
-        --motion-factor: 0;
-    }
+/* Utility class: visually-hidden (for live regions or accessible text only) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 /* Dark Mode (System preference) */
 @media (prefers-color-scheme: dark) {
-    :root[data-mode='dark'] {
-        --background: #181818;
-        --surface: #232323;
-        --surface-raised: #232323;
-        --surface-overlay: #232323;
-        --text: #f5f5f5;
-        --muted: #b0b0b0;
-        --card-background: var(--surface);
-        --button-bg: var(--color-primary);
-        --button-text: var(--color-on-primary);
-    }
+  :root[data-mode='dark'] {
+    --background: #181818;
+    --surface: #232323;
+    --surface-raised: #232323;
+    --surface-overlay: #232323;
+    --text: #f5f5f5;
+    --muted: #b0b0b0;
+    --card-background: var(--surface);
+    --button-bg: var(--color-primary);
+    --button-text: var(--color-on-primary);
+  }
 }
 
 /* High contrast mode (system accessibility) */
 @media (forced-colors: active) {
-    :root {
-        --background: Canvas;
-        --surface: Canvas;
-        --text: CanvasText;
-        --muted: GrayText;
-        --button-bg: ButtonFace;
-        --button-text: ButtonText;
-        --border-subtle: GrayText;
-        --border-strong: GrayText;
-    }
+  :root {
+    --background: Canvas;
+    --surface: Canvas;
+    --text: CanvasText;
+    --muted: GrayText;
+    --button-bg: ButtonFace;
+    --button-text: ButtonText;
+    --border-subtle: GrayText;
+    --border-strong: GrayText;
+  }
 }
 
 /* Print support */
 @media print {
-    body {
-        background: #fff !important;
-        color: #000 !important;
-    }
-    a {
-        color: #000 !important;
-        text-decoration: underline;
-    }
+  body {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
 }

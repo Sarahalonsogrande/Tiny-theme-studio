@@ -1,0 +1,24 @@
+<section class="storytelling">
+  <!-- COVER chapter -->
+  <app-special-chapter [specialChapter]="specialChapters.cover" />
+
+  <!-- STICKY HEADER -->
+  <div class="stuck-top">
+    <nav aria-label="Navegación principal">
+      <app-main-header />
+    </nav>
+  </div>
+
+  @for (chapter of chapters; track chapter.id) {
+    <!-- CHAPTERS -->
+    <app-chapter
+      [chapter]="chapter"
+    />
+  }
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <cite><small>{{ 'welcome.footer.note' | translate }}</small></cite>
+</footer>

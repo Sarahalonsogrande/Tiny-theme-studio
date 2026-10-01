@@ -79,7 +79,21 @@ La exploración continúa.
   - Se probó `clip-path: inset(0)` en `header` para recortar el desbordamiento, pero eso creó un nuevo `stacking context`.
   - Al crear ese nuevo contexto, el `h1` dejó de competir en la misma jerarquía que `.stuck-top`, y visualmente pasó por debajo del sticky header aunque tuviera un `z-index` alto.
   - La solución correcta fue quitar `clip-path` del `header` y mover el recorte horizontal al contenedor `main` con `overflow-x: clip`.
+
   - Esa diferencia es importante: no todos los mecanismos de recorte son "visualmente neutros". Algunos también alteran la jerarquía de capas.
+
+**Apunte — animation-fill-mode: forwards y stacking context persistente**
+
+Al estudiar [la documentación de animaciones en MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Animations/Using), me pareció interesante saber que el uso de `animation-fill-mode: forwards` puede causar stacking context persistente y problemas de jerarquía visual similares a los que tuvimos con el header.
+
+- Cuando usas `animation-fill-mode: forwards` junto con animaciones que afectan `opacity`, `transform` o `filter`, el navegador crea un stacking context nuevo para ese elemento durante la animación.
+- Si la animación termina y el fill-mode es `forwards`, ese stacking context persiste, porque el navegador mantiene la “capa” especial para conservar el estado final de la animación.
+- Esto puede hacer que un elemento animado se quede "flotando" por encima de otros, ignorando el stacking context normal del DOM y el `z-index` que tú le pongas.
+
+En nuestro caso, el problema real fue por el uso de `transform` y `clip-path` en el header, que crearon stacking contexts nuevos y alteraron la jerarquía visual, pero no usamos `animation-fill-mode: forwards`. Me pareció útil conectar este aprendizaje por si en el futuro nos encontramos en una situación similar.
+
+Reference: [MDN — Using CSS animations](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Animations/Using)
+
 - **Próximo paso:** Documentar una escala de capas por feature (`base`, `raised`, `floating`, `overlay`) para prevenir regresiones visuales.
 
 **2026-03-12 — Lazy-loading de 13 iframes Spotify con Intersection Observer**
@@ -107,6 +121,13 @@ La exploración continúa.
   - Time to interactive: más rápido porque no hay 13 requests bloqueantes simultáneamente.
   - Mobile: experiencia mucho mejor (menos datos, menos CPU).
 - **Próximo paso:** Considerar SSR compatibility si en el futuro se migra a una arquitectura híbrida. Intersection Observer está soportado por todos los navegadores modernos, pero SSR necesitaría renderizar placeholders en server.
+
+**2026-03-12 — Idea de orden para accesibilidad de motion**
+
+- **Idea:** Mover de archivos de features/componentes la logica de `prefers-reduced-motion` y otros overrides de animaciones decorativas hacia `src/app/theme/motion.scss`.
+- **Motivo:** Evitar dispersion de reglas de accesibilidad y tener una politica unica de motion.
+- **Beneficio esperado:** Menos duplicados, mantenimiento mas simple y comportamiento consistente al activar reduced motion.
+- **Siguiente accion:** Dejar `src/styles.scss` solo como import/activacion global del theme, sin reglas especificas de motion por feature.
 
 ---
 
@@ -184,7 +205,6 @@ Temas que quiero investigar próximamente:
 - Motion tokens ligados a densidad visual
 - Fluid typography sin breakpoints
 - Relación entre spacing y percepción de velocidad
-- Estrategias de fallback y cobertura de glifos (latin-ext) para evitar mezclar fuentes en caracteres acentuados
 
 ---
 
@@ -259,7 +279,7 @@ La inicialización ocurre en tres capas:
 
 **Mode:** Controla luminancia (light | dark), aplicado como data-mode="dark"
 
-**Mood:** Controla personalidad de color, independiente de la luminancia (ej: birthday, leafy, flowery, tiger, ocean). Afecta tokens semánticos, no layout.
+**Mood:** Controla personalidad de color, independiente de la luminancia (ej: 'rabbit', 'bottle', 'cake', 'catepillar', 'cat', 'queen', 'lobster'). Afecta tokens semánticos, no layout.
 
 **Language:** Inicializado desde preferencia guardada, idioma del navegador o fallback. Aplicado como <html lang="en">.
 
@@ -487,6 +507,185 @@ Small ideas that changed how I understand UI or CSS:
 Things I’m starting to notice in real products:
 
 - Many modern interfaces reduce shadows and use surface contrast.
+- Dark mode works better when it changes hierarchy, not just colors.
+- Fast motion feels lighter even if it does more.
+- Temporary style decision: some texts are shown without accents to keep visual consistency with a limited display font.
+- Pending: validate a typographic solution that allows accents and diacritics without breaking the wordmark’s aesthetics.
+
+---
+
+## 🐇 Rabbit Holes
+
+Topics I want to investigate soon:
+
+- Container queries mental model
+- Motion tokens tied to visual density
+- Fluid typography without breakpoints
+- Relationship between spacing and perceived speed
+
+---
+
+## 🏗️ Architecture and Learnings
+
+While learning Angular, CSS architecture, and UI systems, the project evolved into an exploration of:
+
+- How interfaces initialize
+- How visual systems stay consistent
+- How design decisions become architecture
+
+This file documents what was learned, not just what was built.
+
+### Origin
+
+What started as structured learning turned into something else. Following curiosity led me deeper into UI design, theming systems, and CSS architecture—a little “Alice in Wonderland” moment where experimentation replaced tutorials.
+
+CSS stopped being decoration and became a system.
+
+This repository reflects that transition: learning → experimentation → understanding.
+
+### Central idea
+
+The app implements a runtime UI system designed to:
+
+- Prevent visual flashes during load (FOUC)
+- Support light/dark modes
+- Allow color “moods”
+- Initialize language before rendering
+- Keep the UI reactive via Angular signals
+
+The goal is consistency between:
+
+Browser state → DOM → Angular runtime → UI
+
+### Architecture summary
+
+Initialization happens in three layers:
+
+**1️⃣ Pre-bootstrap (index.html)**
+
+- Runs before Angular loads
+- Reads preferences from localStorage
+- Detects system color scheme
+- Applies attributes directly to <html>
+  - data-mode="light|dark"
+  - data-mood="value"
+  - lang="xx"
+- Prevents incorrect visual state on first paint
+
+**2️⃣ Runtime services (Angular)**
+
+- Initialized with bootstrapApplication and provideAppInitializer
+- Global services:
+  - UiModeService → light/dark mode
+  - UiMoodService → color personality
+  - LanguageService → translations
+- Converts DOM state into reactive signals
+- Persists user preferences
+- Syncs DOM and app state
+- Signals are the only source of truth
+
+**3️⃣ UI Components**
+
+- Consume signals, never access localStorage or manipulate <html>
+- Only react to state
+- Result: UI is already synced from the first frame
+
+---
+
+## 🎨 Theming model
+
+**Mode:** Controls luminance (light | dark), applied as data-mode="dark"
+
+**Mood:** Controls color personality, independent of luminance (e.g., 'rabbit', 'bottle', 'cake', 'catepillar', 'cat', 'queen', 'lobster'). Affects semantic tokens, not layout.
+
+**Language:** Initialized from saved preference, browser language, or fallback. Applied as <html lang="en">.
+
+**State priority:**
+
+1. DOM attributes (bootstrap truth)
+2. localStorage
+3. System preference
+4. Default fallback
+
+This ensures continuity between boot and runtime.
+
+---
+
+## ✅ Quick validation
+
+Manual steps:
+
+- Inspect <html> before Angular loads
+- Confirm data-mode, data-mood, and lang
+- Change values via console and verify UI updates
+- Reload after changing localStorage to confirm persistence
+- Run Lighthouse to validate contrast
+
+**Common issues:**
+
+- FOUC → missing or slow pre-bootstrap
+- Tokens don’t update → semantic tokens derived incorrectly
+
+---
+
+## 📚 Key principles learned
+
+> 🔍 **Observation:** UI consistency depends more on initialization order than styling.
+>
+> 💡 **Insight:** CSS tokens work best when components never access primitives directly.
+>
+> ⚠️ **Failed hypothesis:** Too many elevation variations increase visual noise.
+
+---
+
+## 🧪 What this repository represents
+
+It’s not a finished product, but a documented learning process.
+
+A small personal lab exploring:
+
+- Standalone Angular architecture
+- Signal-driven state
+- Design tokens
+- Runtime theming
+- UI initialization strategies
+
+Some files exist just to capture understanding, not results.
+
+---
+
+## 📓 Quick glossary
+
+**Surface:** Interactive plane within the visual context
+
+**Elevation:** Perceived distance between layers, not a specific shadow
+
+**Semantic token:** Variable expressing intent, not value
+
+---
+
+## 📌 Loose notes
+
+Quick ideas that don’t deserve their own section yet:
+
+- Maybe separate motion physics from motion timing
+- Explore shadows derived from background
+- Try UI without borders
+- **Explore advanced responsive with minimal media queries, using clamp, flex, and grid for truly fluid, adaptive layouts**
+
+---
+
+_Last update: YYYY-MM-DD_
+
+- Semantic tokens reduce future decisions.
+
+---
+
+## 👁 Observations
+
+Things I’m starting to notice in real products:
+
+- Many modern interfaces reduce shadows and use surface contrast.
 - Dark mode works better when hierarchy changes, not just colors.
 - Fast motion feels lighter even if it does more.
 - Temporary styling decision: some texts are shown without accents to keep visual consistency with a limited display typeface.
@@ -577,7 +776,7 @@ Initialization happens in three layers:
 
 **Mode:** Controls luminance (light | dark), applied as data-mode="dark"
 
-**Mood:** Controls color personality, independent of luminance (e.g., birthday, leafy, flowery, tiger, ocean). Affects semantic tokens, not layout.
+**Mood:** Controls color personality, independent of luminance (e.g., 'rabbit', 'bottle', 'cake', 'catepillar', 'cat', 'queen', 'lobster'). Affects semantic tokens, not layout.
 
 **Language:** Initialized from stored preference, browser language, or fallback. Applied as <html lang="en">.
 

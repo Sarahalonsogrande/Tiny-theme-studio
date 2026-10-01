@@ -2,7 +2,8 @@
 .music-widget-block {
   display: flex;
   flex-direction: column;
-  max-width: var(--breakpoint-xs);
+  //inline-size: 100%;
+  width: 320px;
   margin: var(--space-4) auto;
 
   /* Album label */

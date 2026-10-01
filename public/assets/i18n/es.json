@@ -8,7 +8,8 @@
         "start": "empezar",
         "finish": "finalizar",
         "skip": "saltar",
-        "reset": "limpiar"
+        "reset": "limpiar",
+        "comingSoon": "\uD83D\uDEA7 Próximamente"
     },
     "aria": {
         "next": "Ir al siguiente paso",
@@ -31,9 +32,12 @@
         "stylesTitle": "estilos",
         "swatchesTitle": "muestras"
     },
+    "films-data": {
+        
+    },
     "welcome": {
         "cover": {
-            "title": "tiny theme studio",
+            "title": "En territorio de Variables",
             "quote": "Pero si no soy la misma, la siguiente pregunta es, ¿quién demonios soy?\\n¡Ah, ESTE es el gran Enigma! \u27b0"
         },
         "rabbit-hole": {
@@ -69,7 +73,7 @@
             "goImgAlt": "Paleta de colores"
         },
         "footer": {
-            "note": "🚨 Lewis Carroll nunca escribió esto, pero probablemente lo haría de tener mi trayectoria."
+            "note": "Lewis Carroll nunca escribió esto, pero probablemente lo haría de tener mi trayectoria."
         }
     }
 }

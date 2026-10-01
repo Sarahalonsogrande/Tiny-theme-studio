@@ -11,11 +11,13 @@
 <button
     type="button"
     class="spin-btn"
+    [disabled]="disabled()"
     (click)="onSwitch()"
     [class.rotating]="isRotating()"
     [class.rotate-next]="rotationDirection() === 'next'"
     [class.rotate-prev]="rotationDirection() === 'prev'"
     [attr.aria-label]="ariaLabel()"
+    [attr.aria-disabled]="disabled()"
     [attr.aria-pressed]="false"
 >
     <!-- Icon wrapper triggers spin animation -->

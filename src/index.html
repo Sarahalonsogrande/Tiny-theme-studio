@@ -6,7 +6,7 @@
   <title>Tiny Theme Studio</title>
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" href="/images/cat.svg" type="image/svg+xml">
 
     <!-- Pre-bootstrap script for theme, mood, and language initialization.
       Runs before Angular loads to prevent UI flashes. -->
@@ -15,7 +15,7 @@
     (function () {
       // Define allowed values to prevent invalid injections.
       var allowedModes = ['light', 'dark'];
-      var allowedMoods = ['birthday', 'leafy', 'flowery', 'tiger', 'ocean'];
+      var allowedMoods = ['rabbit', 'bottle', 'cake', 'catepillar', 'cat', 'queen', 'lobster'];
 
       try {
         // MODE: Initialize from localStorage or system preference.
@@ -39,7 +39,7 @@
         var storedMood = null;
         try { storedMood = localStorage.getItem('ui-mood'); } catch (e) { storedMood = null; }
 
-        var mood = allowedMoods.includes(storedMood) ? storedMood : 'birthday';
+        var mood = allowedMoods.includes(storedMood) ? storedMood : 'rabbit';
         // Apply mood to DOM.
         if (mood && document && document.documentElement) {
           document.documentElement.setAttribute('data-mood', mood);
@@ -67,7 +67,101 @@
 
 <!-- Main app container -->
 <body>
-  <app-root></app-root>
+  <app-root>
+    <style>
+      .splash {
+  height: 100svh;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  perspective: 1400px;
+  background: black;
+}
+
+.scene {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+/* ---------------- ITEMS ---------------- */
+
+.item {
+  --spread: 35;
+  --speed: 8s;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 110px;
+
+  transform-style: preserve-3d;
+  will-change: transform, opacity, filter;
+
+  /* organic positioning */
+  --x: calc(sin(var(--i) * 37deg) * var(--spread) * 1vw);
+  --y: calc(cos(var(--i) * 53deg) * var(--spread) * 1vh);
+
+  animation: fly var(--speed) linear infinite;
+  animation-delay: calc(var(--i) * -1s);
+}
+
+/* ---------------- ANIMATION ---------------- */
+
+@keyframes fly {
+
+  0% {
+    transform:
+      translate(-50%, -50%)
+      translate(var(--x), var(--y))
+      translateZ(-800px)
+      scale(.5);
+
+    opacity: 0;
+    filter: blur(8px);
+  }
+
+  35% {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  50% {
+    transform:
+      translate(-50%, -50%)
+      translate(var(--x), var(--y))
+      translateZ(0px)
+      scale(1);
+  }
+
+  100% {
+    transform:
+      translate(-50%, -50%)
+      translate(var(--x), var(--y))
+      translateZ(800px)
+      scale(1.6);
+
+    opacity: 0;
+    filter: blur(8px);
+  }
+}
+
+    </style>
+    <div class="splash">
+  <div class="scene">
+
+    <img src="/images/cat.svg" class="item" style="--i:0">
+    <img src="/images/cat.svg" class="item" style="--i:1">
+    <img src="/images/cat.svg" class="item" style="--i:2">
+    <img src="/images/cat.svg" class="item" style="--i:3">
+    <img src="/images/cat.svg" class="item" style="--i:4">
+    <img src="/images/cat.svg" class="item" style="--i:5">
+    <img src="/images/cat.svg" class="item" style="--i:6">
+
+  </div>
+</div>
+  </app-root>
 </body>
 
 </html>

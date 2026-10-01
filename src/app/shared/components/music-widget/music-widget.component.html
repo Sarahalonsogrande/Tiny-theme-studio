@@ -1,32 +1,51 @@
 <div class="music-widget-block" #widgetContainer>
     @if (album()) {
-    @if (albumHref()) {
-    <a class="music-album" [href]="albumHref()" target="_blank" rel="noopener noreferrer"
-        [attr.aria-label]="'Open on Spotify: ' + album()">💿 <small>{{ album() }}</small></a>
-    } @else {
-    <span class="music-album">💿<small>{{ album() }}</small></span>
-    }
+        @if (albumHref()) {
+            <a
+                class="music-album"
+                [href]="albumHref()"
+                target="_blank"
+                rel="noopener noreferrer"
+                [attr.aria-label]="'Open on Spotify: ' + album()"
+            >
+                <span>💿 <small>{{ album() }}</small></span>
+            </a>
+        } @else {
+            <span class="music-album">💿 <small>{{ album() }}</small></span>
+        }
     }
 
     <div class="music-widget">
         @if (isInViewport()) {
-        @if (allowAutoplay()) {
-        <iframe [src]="safeSrc()" [title]="title()" [width]="width()" [height]="height()" frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-        </iframe>
+            @if (allowAutoplay()) {
+                <iframe
+                    [src]="safeSrc()"
+                    [title]="title()"
+                    [width]="width()"
+                    [height]="height()"
+                    frameborder="0"
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+            } @else {
+                <iframe
+                    [src]="safeSrc()"
+                    [title]="title()"
+                    [width]="width()"
+                    [height]="height()"
+                    frameborder="0"
+                    allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+                </iframe>
+            }
         } @else {
-        <iframe [src]="safeSrc()" [title]="title()" [width]="width()" [height]="height()" frameborder="0"
-            allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy">
-        </iframe>
-        }
-        } @else {
-        <div class="music-placeholder" [attr.aria-label]="'Loading ' + title()">
-            <div class="placeholder-content">
-                <div class="placeholder-icon">🎵</div>
-                <p class="placeholder-text">{{ title() }}</p>
-                <small class="placeholder-album">{{ album() }}</small>
+            <div class="music-placeholder" [attr.aria-label]="'Loading ' + title()">
+                <div class="placeholder-content">
+                    <div class="placeholder-icon">🎵</div>
+                    <p class="placeholder-text">{{ title() }}</p>
+                    <small class="placeholder-album">{{ album() }}</small>
+                </div>
             </div>
-        </div>
         }
     </div>
 </div>

@@ -1,0 +1,201 @@
+.chapter {
+  padding: 0 var(--space-4);
+
+  header,
+  header > h1,
+  h2,
+  blockquote {
+    animation: linear both;
+    animation-timeline: view();
+  }
+
+  header {
+    position: relative;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    gap: var(--size-5);
+    block-size: 95svh;
+    border-block-end: 1px solid var(--color-highlight);
+
+    animation-name: color-border;
+    animation-range: cover 30% exit-crossing 95%;
+
+    h1,
+    h2 {
+      letter-spacing: var(--font-letterspacing-4);
+      opacity: 0;
+    }
+
+    h1 {
+      margin-bottom: var(--space-3);
+      background-image: linear-gradient(
+        90deg,
+        var(--color-highlight-strongest) 0%,
+        var(--color-highlight-strong) 25%,
+        var(--color-highlight) 50%,
+        var(--color-highlight-weak) 100%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-wrap: balance;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
+      max-inline-size: 100%;
+      filter: drop-shadow(1px 1px 0.4px var(--color-neutral-strong))
+        drop-shadow(0.8px 0.4px 0.4px var(--color-accent-weak))
+        drop-shadow(4px 4px 4px var(--highlight-sweep));
+
+      animation-name: dramatic-title;
+      animation-range: entry 0% cover 90%;
+    }
+
+    h2 {
+      position: sticky;
+      top: var(--space-3);
+      text-shadow:
+        0 0.08em 0.24em var(--color-accent-a70),
+        0 0.24em 0.64em var(--color-accent-a50);
+      pointer-events: none;
+      z-index: var(--layer-overlay);
+
+      animation-name: stuck-chapters;
+      animation-range: entry 50% cover 90%;
+    }
+
+    blockquote {
+      margin: var(--space-3) auto;
+      color: var(--text);
+      opacity: 1;
+      transform-origin: center top;
+
+      animation-name: grow-blockquote;
+      animation-range: cover 30% exit-crossing 95%;
+    }
+
+    nav {
+      position: relative;
+
+      .coming-soon-alert {
+        position: absolute;
+        top: 110%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--bg-glass, #fff);
+        color: var(--color-primary, #0033cc);
+        border: 1px solid var(--color-primary-weak, #b3c6ff);
+        border-radius: var(--radius-lg);
+        box-shadow: var(--elevation-floating);
+        padding: var(--space-3) var(--space-4);
+        font-family: var(--font-accent);
+        font-weight: 600;
+        z-index: var(--layer-toast);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity var(--motion-system-duration);
+        white-space: nowrap;
+      }
+
+      .go-button:hover + .coming-soon-alert,
+      .go-button:focus + .coming-soon-alert {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+}
+
+/* ANIMATIONS */
+
+/* Border block end */
+@keyframes color-border {
+  0% {
+    border-block-end-color: var(--color-highlight);
+  }
+  50% {
+    border-block-end-color: var(--color-primary);
+  }
+  100% {
+    border-block-end-color: transparent;
+  }
+}
+
+/* Chapter Title */
+@keyframes dramatic-title {
+  0% {
+    opacity: 0;
+    transform: scale(calc(1 + var(--fluid, 0) * 3));
+  }
+  20% {
+    opacity: 1;
+    transform: scale(calc(1 + var(--fluid, 0) * 2));
+  }
+  75% {
+    opacity: 0.75;
+    transform: scale(calc(1 + var(--fluid, 0) * 1.5));
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* Chapter Numbers */
+@keyframes stuck-chapters {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  20% {
+    opacity: 0.5;
+    transform: scale(2);
+  }
+  80% {
+    opacity: 1;
+    transform: scale(2.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3);
+  }
+}
+
+/* Blockquotes */
+@keyframes grow-blockquote {
+  0%,
+  50% {
+    opacity: 0.25;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(2);
+  }
+  75% {
+    opacity: 0.15;
+  }
+  100% {
+    opacity: 0;
+    color: var(--color-primary);
+    transform: scale(calc(1 + var(--fluid, 0) * 4));
+  }
+}
+
+/* Fallback for scroll-timeline animations */
+@supports not (animation-timeline: view()) {
+  section header {
+    animation: color-border 1.2s linear both;
+  }
+  section header h1 {
+    animation: dramatic-title 1.2s var(--ease-emphasized) both;
+  }
+  section header h2 {
+    animation: stuck-chapters 1.2s var(--ease-emphasized) both;
+  }
+  section header blockquote {
+    animation: grow-blockquote 1.2s var(--ease-standard) both;
+  }
+}

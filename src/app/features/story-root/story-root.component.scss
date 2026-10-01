@@ -1,0 +1,69 @@
+.story-root {
+  max-width: 100vw;
+  width: 100%;
+  overflow-x: clip;
+
+  view-timeline-name: --page;
+  view-timeline-axis: block;
+
+  section {
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  #storyPrologue {
+    min-height: 200vh;
+
+    view-timeline-name: --prologue;
+    view-timeline-axis: block;
+  }
+
+  #storyOverview {
+    /* Stretch it out, create room for horizontal scroll animation to make position sticky work */
+    height: 600vh;
+    overflow: visible;
+
+    view-timeline-name: --overview;
+    view-timeline-axis: block;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes parallaxSlow {
+  from {
+    transform: translateX(-5vw);
+  }
+  to {
+    transform: translateX(5vw);
+  }
+}
+
+@keyframes parallaxFast {
+  from {
+    transform: translateX(-15vw);
+  }
+  to {
+    transform: translateX(15vw);
+  }
+}
+
+/* Fallback: no view-timeline support -> keep a usable horizontal scroller */
+@supports not (animation-timeline: --page) {
+  #storyOverview {
+    height: auto;
+    overflow: hidden;
+  }
+}

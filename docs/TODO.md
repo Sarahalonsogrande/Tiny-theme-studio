@@ -99,6 +99,11 @@ La implementación actual es suficientemente estable para producción, pero los 
 - [ ] Alinear duración de motion con nivel de elevación
   - mayor elevación = mayor duración + easing más suave
 
+- [ ] Centralizar la politica de movimiento en `src/app/theme/motion.scss`
+  - Mover reglas `@media (prefers-reduced-motion: reduce)` desde estilos de features/componentes
+  - Mover overrides de animaciones decorativas (ej. sticky nav de welcome) a `motion.scss`
+  - Dejar `src/styles.scss` como punto de import/activacion global, sin logica especifica de motion
+
 - [ ] Añadir soporte para `prefers-reduced-motion` en los estilos SCSS
   - Usar media query para reducir duración de animaciones y transiciones si el usuario lo prefiere
   - Testear que los tokens de motion se ajustan correctamente
@@ -150,7 +155,7 @@ La implementación actual es suficientemente estable para producción, pero los 
     - `.fx-surface-interactive[data-intensity="soft"]` → glow suave, sweep lento
     - `.fx-surface-interactive[data-intensity="strong"]` → glow pronunciado, sweep rápido
     - `.fx-surface-interactive[data-intensity="ambient"]` → solo glow, sin sweep
-  - [ ] Conectar intensidad con **moods** (birthday → strong, leafy → soft, etc.)
+  - [ ] Conectar intensidad con **moods** (rabbit → soft, caterpillar → stong, etc.)
   - [ ] Extraer a archivo SCSS compartido (`src/app/theme/effects.scss`)
   - [ ] Documentar uso en componentes (botones, cards, widgets)
   - [ ] Aplicar a componentes core: botones, tarjetas, interactivos
@@ -344,7 +349,7 @@ This project implements a token-based design system with semantic color roles, s
     - `.fx-surface-interactive[data-intensity="soft"]` → subtle glow, slow sweep
     - `.fx-surface-interactive[data-intensity="strong"]` → pronounced glow, fast sweep
     - `.fx-surface-interactive[data-intensity="ambient"]` → glow only, no sweep
-  - [ ] Connect intensity to **moods** (birthday → strong, leafy → soft, etc.)
+  - [ ] Connect intensity to **moods** (rabbit → soft, caterpillar → strong, etc.)
   - [ ] Extract to shared SCSS file (`src/app/theme/effects.scss`)
   - [ ] Document usage in components (buttons, cards, widgets)
   - [ ] Apply to core components: buttons, cards, interactive elements

@@ -1,0 +1,100 @@
+/* Global background for the welcome experience and horizontal overflow protection. */
+
+.storytelling {
+  position: relative;
+  background-image:
+    linear-gradient(
+      135deg,
+      var(--surface-overlay) 0%,
+      var(--bg-glass) 36%,
+      var(--color-primary-a20) 86%,
+      var(--color-primary-strong) 100%
+    );
+  overflow-x: clip;
+
+  .stuck-top {
+    /* Sticky nav with a distinct visual state when pinned to top. */
+    container-type: scroll-state;
+    position: sticky;
+    top: var(--space-5);
+    z-index: var(--layer-floating);
+
+    nav {
+      margin: 0 var(--space-1);
+      background: transparent;
+      transition:
+        background-color var(--duration-md) var(--ease-standard),
+        background-image var(--duration-md) var(--ease-standard),
+        box-shadow var(--duration-md) var(--ease-standard),
+        margin var(--duration-md) var(--ease-bounce),
+        border-radius var(--duration-md) var(--ease-standard);
+
+      @container scroll-state(stuck: top) {
+        background-color: var(--surface-a95);
+        background-image: linear-gradient(
+          90deg,
+          var(--surface) 0%,
+          var(--surface-overlay) 30%,
+          var(--color-primary-a20) 72%,
+          var(--color-primary-a50) 88%,
+          var(--color-primary) 100%
+        );
+        background-size: 240% 100%;
+        background-position: 0% 50%;
+        margin-inline: var(--space-6);
+        box-shadow: var(--elevation-rest);
+        border-radius: var(--radius-xxl);
+        animation: stuck-gradient-flow linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0% 100%;
+      }
+    }
+
+    @keyframes stuck-gradient-flow {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+        box-shadow: var(--elevation-dreamy);
+      }
+    }
+  }
+}
+
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 95vw;
+  margin-bottom: var(--space-4);
+  text-align: center;
+  //padding: var(--space-5) 0 var(--space-1) 0;
+  color: transparent;
+
+  transition:
+    color var(--duration-md) var(--ease-standard),
+    background var(--duration-md) var(--ease-standard);
+    animation: fade-footer linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0% 100%;
+
+  cite {
+    padding: var(--space-3);
+    font-size: var(--font-size-xs);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: var(--font-letterspacing-1);
+  }
+
+  @keyframes fade-footer {
+    80% {
+      color: transparent;
+      //border: none;
+    }
+    100% {
+      color: var(--text);
+      // border: 1px solid black;
+    }
+  }
+}

@@ -8,13 +8,17 @@ export const routes: Routes = [
     },
     {
         path: 'welcome',
-        loadComponent: () => import('./features/welcome/welcome.component').then(m => m.WelcomeComponent),
+        loadComponent: () => import('./features/story-root/story-root.component').then(m => m.StoryRootComponent),
         data: { title: 'appTitles.welcomeTitle' }
     },
     {
-        path: 'style-guide',
-        loadComponent: () => import('./features/style-guide/style-guide.component').then(m => m.StyleGuideComponent),
+        path: 'storytelling',
+        loadComponent: () => import('./features/story-root/story-chapters/story-chapters.component').then(m => m.StoryChaptersComponent),
         data: { title: 'appTitles.stylesTitle' }
+    },
+    {
+        path: 'story-prologue',
+        loadComponent: () => import('./features/story-root/story-prologue/story-prologue.component').then(m => m.StoryPrologueComponent)
     },
     {
         path: 'carousel',

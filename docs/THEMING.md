@@ -100,7 +100,7 @@ Cambiar primitives provoca recalculo automático de tokens semánticos.
 
 4️⃣ **Moods — Identidad Cromática**
 Archivo: `moods.scss`
-Definen variantes emocionales o de marca: `birthday`, `ocean`, etc.
+Definen variantes emocionales o de marca: `rabbit`, `bottle`, `cake`, `catepillar`, `cat`, etc.
 Sobrescriben hue, saturation, accentos.
 Nunca tokens semánticos.
 👉 Sobrescriben primitives para cambiar identidad cromática
@@ -153,8 +153,8 @@ Cambiar `data-mode` o `data-mood` actualiza toda la UI automáticamente.
   ```
 - Aplicar mood:
   ```js
-  document.documentElement.dataset.mood = 'birthday';
-  // o uiMoodService.setMood('birthday');
+  document.documentElement.dataset.mood = 'rabbit';
+  // o uiMoodService.setMood('rabbit');
   ```
 
 ---
@@ -372,7 +372,7 @@ Changing primitives triggers automatic recalculation of semantic tokens.
 
 4️⃣ **Moods — Chromatic Identity**
 File: `moods.scss`
-Defines emotional or brand variants: `birthday`, `ocean`, etc.
+Defines emotional or brand variants: `rabbit`, `bottle`, `cake`, `catepillar`, `cat`, etc.
 Overrides hue, saturation, accents.
 Never semantic tokens.
 👉 Overrides primitives to change chromatic identity
@@ -425,8 +425,8 @@ Changing `data-mode` or `data-mood` updates the entire UI automatically.
   ```
 - Apply mood:
   ```js
-  document.documentElement.dataset.mood = 'birthday';
-  // or uiMoodService.setMood('birthday');
+  document.documentElement.dataset.mood = 'rabbit';
+  // or uiMoodService.setMood('rabbit');
   ```
 
 ---

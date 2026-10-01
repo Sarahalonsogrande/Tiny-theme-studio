@@ -1,0 +1,53 @@
+header {
+  //position: sticky;
+  width: 100dvw;
+  //height: 300vh;
+  overflow-x: hidden;
+
+
+    position: relative;
+
+    text-align: center;
+    color: black;
+    letter-spacing: 0.15em;
+    //text-transform: uppercase;
+    //z-index: 100;
+    //pointer-events: none;
+
+  h1 {
+      display: grid;
+      place-content: center;
+      height: 100dvh;
+    color: red;
+    animation: motion-scale-out;
+    animation-range: exitcross 100%;
+  }
+
+
+    .overlay {
+      height: 300vh;
+      background: radial-gradient(ellipse 400px 200px, #ffffff 10%, #000000 100%);
+
+
+      animation: prologueFade linear both;
+      animation-timeline: --prologue;
+      animation-range: entry 0% cover 75%;
+    }
+}
+
+
+
+@keyframes prologueFade {
+  from {
+    opacity: 1;
+    backdrop-filter: blur(12px);
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    backdrop-filter: blur(0);
+    transform: scale(1.02);
+    pointer-events: none;
+  }
+}

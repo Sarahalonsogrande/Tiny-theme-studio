@@ -1,15 +1,18 @@
-import { AfterViewInit, Component, ElementRef, Input, TemplateRef, ViewChild, signal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, TemplateRef, ViewChild, input, signal } from '@angular/core';
 import { TokenComponent } from "@app/shared/components/token/token.component";
 import { TokensComponent } from "../tokens/tokens.component";
 import { ColorsComponent } from "../style-guide/colors/colors.component";
+import { InfoCardComponent } from "../info-card/info-card.component";
+import { Movie, MOVIES_DATA } from '@app/core/constants/filmography';
 
 @Component({
   selector: 'app-carousel',
   templateUrl: './carousel.component.html',
   styleUrl: './carousel.component.scss',
-  imports: [TokenComponent, TokensComponent, ColorsComponent]
+  imports: [ColorsComponent, InfoCardComponent]
 })
 export class CarouselComponent {
+  movie = signal<Movie[]>([... MOVIES_DATA]);
 // export class CarouselComponent implements AfterViewInit {
   // @Input() items!: any[];                  // Array de items dinámicos
   // @Input() itemTemplate!: TemplateRef<any>; // Template para renderizar cada item

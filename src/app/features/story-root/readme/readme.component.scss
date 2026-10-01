@@ -1,0 +1,104 @@
+header {
+    //* { border: 1px solid red; }
+    display: flex;
+    //justify-content: space-evenly;
+    align-items: center;
+    gap: var(--space-5);
+}
+
+    p {
+        color: red;
+
+        &::first-line {
+            font-size: xx-large;
+            color: blue;
+        }
+    }
+
+blockquote {
+//border: 1px solid red;
+    --n: 380;
+    width: 60vw;
+    height: 60dvh;
+    padding: var(--space-8);
+    overflow: auto;
+    overflow-x: hidden;
+    // Animaction scroll-timeline (experimental)
+    scroll-timeline-name: --text;
+    scroll-timeline-axis: block;
+
+    span {
+        /* highlight text */
+        background:
+            linear-gradient(90deg, var(--text) 00) 0 / 0% 100% no-repeat,
+            var(--color-primary);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: text linear both;
+        animation-timeline: --text;
+    }
+
+    // Custom Scrollbar - WebKit (Chrome, Edge,Safari)
+    ::-webkit-scrollbar {
+        max-width: var(--space-3);
+        max-height: var(--space-3);
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: transparent;
+        border: 3px solid va(--color-primary-weak);
+        border-radius: var(--radius-sm);
+    }
+
+    ::-webkit-scrollbar-button {
+        background: transparent;
+        border: 3px solid va(--color-primary-weak);
+        border-radius: var(--radius-sm);
+        border-top-right-radius: var(--radius-sm);
+    }
+
+    :hover::-webkit-scrollbar-track {
+        background: var(--bg-glass);
+    }
+
+    :hover::-webkit-scrollbar-thumb {
+        background: var(--color-primary-strong);
+    }
+
+    :hover::-webkit-scrollbar-button {
+        background: var(--color-primary-strong);
+    }
+
+    :active:-webkit-scrollbar-thumb {
+        background: var(--color-primary-strong);
+    }
+
+    // Firefox Scrollbar
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-primary-weak)transparent;
+    :hover {
+        scrollbar-color: va(--color-primary-strong) var(--bg-glass);
+    }
+}
+
+@keyframes text {
+    from {
+        background-size: 0 100%;
+    }
+    to {
+        background-size: 100% 100%;
+    }
+}
+
+// Fallback animation-timeline
+@supports not (animation-timeline: --text) {
+    blockquote {
+        animation: none;
+        background-size: 100% 100%;
+    }
+}

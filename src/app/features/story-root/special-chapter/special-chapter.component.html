@@ -1,0 +1,13 @@
+<article class="special-chapter"
+    [id]="specialChapter().id"
+    [class.special-cover]="specialChapter().variant === 'cover'">
+    <header>
+        <h1 class="special-title" [attr.aria-label]="specialChapter().titleAriaLabel">
+            {{ specialChapter().titleKey | translate }}
+        </h1>
+
+        <blockquote [innerHTML]="specialChapter().quoteKey | translate | linebreaks"></blockquote>
+
+        <a href=""><img src="/images/bottle.svg" alt=""></a>
+    </header>
+</article>

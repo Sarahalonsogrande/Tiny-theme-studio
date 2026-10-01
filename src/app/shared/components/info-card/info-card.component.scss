@@ -1,0 +1,48 @@
+.info-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+
+  figure {
+    margin: 0;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 400px; // Altura fija para que todas las portadas casen
+      object-fit: cover; // Evita que la imagen se estire
+      display: block;
+    }
+
+    figcaption {
+      padding: 1.2rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      background: white;
+      min-height: 3.5rem;
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  nav {
+    border-top: 1px solid #f0f0f0;
+    padding-bottom: 0.5rem;
+  }
+}
+
+// .card {
+//     border: 1px solid red;
+//     display: flex;
+//     flex-direction: column;
+// }

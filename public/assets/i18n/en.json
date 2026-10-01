@@ -8,7 +8,8 @@
         "start": "start",
         "finish": "finish",
         "skip": "skip",
-        "reset": "reset"
+        "reset": "reset",
+        "comingSoon": "\uD83D\uDEA7 Coming Soon"
     },
     "aria": {
         "next": "Go to next step",
@@ -31,65 +32,84 @@
         "stylesTitle": "styles",
         "swatchesTitle": "swatches"
     },
+    "readme": {
+        "presentation": "Like Alice following the rabbit, this project is a journey through a world of decisions and surprises.\\nI found a small golden key and opened the door without knowing what lay beyond.\\nIt doesn't follow rigid conventions or pretend to be an example of anything: it's a rabbit hole to get lost in. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusamus a itaque, tempore necessitatibus aliquid quasi? Nam porro delectus, nesciunt obcaecati, facilis dolorem perferendis, aspernatur mollitia eos natus doloremque cupiditate labore? Ex nobis eaque doloribus minima explicabo iste facere eos voluptate vel inventore a, tempore autem excepturi quae! Ex ducimus quae, unde sit animi dolor nihil quos, ullam totam, dolorem quidem. Sed, nisi sint ipsa totam eaque numquam culpa libero dolorum atque debitis quia necessitatibus, tenetur magnam saepe exercitationem perspiciatis quos harum cupiditate porro? Reiciendis nostrum corporis sapiente nam suscipit eligendi. Repellat ratione unde vero aliquid, enim quidem explicabo aliquam accusantium temporibus est maiores doloremque exercitationem dolore quam iste. Rem repudiandae corrupti dolore enim pariatur aspernatur obcaecati similique hic quos natus"
+    },
     "welcome": {
         "cover": {
-            "title": "Tiny Theme Studio",
-            "quote": "But if I'm not the same, the next question is, Who in the world am I?\\nAh, THAT'S the great Enigma! \u27b0"
-        },
-        "rabbit-hole": {
-            "title": "DOWN SCOPE CREEP HOLE",
-            "quote": "Down, down, down... Would the fall never come to an end?\\nI wonder how deeper I've fallen by this time."
-        },
-        "angular": {
-            "title": "THE ENTRY-POINT CAT",
-            "quote": "— Would you tell me, please, which way I should go to get in?\\n— That depends a good deal on where you want to get to.\\n— I don't much care where..."
-        },
-        "html": {
-            "title": "THE QUEEN'S SEMANTIC",
-            "quote": "— And the moral of that is:\\nTake care of the semantics and the sense will take care of itself."
-        },
-        "css": {
-            "title": "THE LAND OF VARIABLES",
-            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
-        },
-        "journey": {
-            "title": "THE JOURNEY",
-            "quote": "If you knew Time as well as I do, you wouldn't talk about wasting it. It's him",
+            "title": "In Variablesland",
+            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here.",
             "text": "Like Alice following the rabbit, this project is a journey through a world of decisions and surprises.\\nI found a small golden key and opened the door without knowing what lay beyond.\\nIt doesn't follow rigid conventions or pretend to be an example of anything: it's a rabbit hole to get lost in."
         },
-        "conclusion": {
+        "scope-hole": {
+            "title": "Down Scope-creep Hole",
+            "quote": "Down, down, down... Would the fall never come to an end?\\nI wonder how deeper I've fallen by this time.",
+            "text": "xxx"
+        },
+        "pool-types": {
+            "title": "The pool of Types",
+            "quote": "But if I'm not the same, the next question is, Who in the world am I?\\nAh, THAT'S the great puzzle!",
+            "text": "xxx"
+        },
+        "ai-race": {
+            "title": "A long AI Tale",
+            "quote": "— Tokens! Tokens! Everybody has won, and all must have tokens.\\n— But who is to give the tokens?\\n— Why, SHE, of course",
+            "text": "xxx"
+        },
+        "rabbit-grid": {
+            "title": "Rabbit sends in a little Grid",
+            "quote": "— It was much pleasanter at home… when one wasn't always growing larger and smaller,\\nand being ordered about by devices and rabbits.",
+            "text": "xxx"
+        },
+        "error-caterpillar": {
+            "title": "Error from a Caterpillar",
+            "quote": "— But when you have to turn into a chrysalis, and then after that into a butterfly,\\nI should think you'll feel it a little queer, won't you?\\n— Not a bit. Keep your temper",
+            "text": "xxx"
+        },
+        "bootstrap-pepper": {
+            "title": "Bootstrap and pepper",
+            "quote": "— Would you tell me, please, which way I should go to get in?\\n— That depends a good deal on where you want to get to.\\n— I don't much care where...",
+            "text": "xxx"
+        },
+        "mad-teatime": {
+            "title": "A mad Teatime party",
+            "quote": "— If you knew Time as well as I do, you wouldn't talk about wasting it. It's Him.\\nI dare say you never even spoke to Time!\\n— Perhaps not, but I know I have to beat Time when I learn",
+            "text": "Text"
+        },
+        "queens-croquet": {
+            "title": "Queen's Croquet-ground",
+            "quote": "The Queen will be furious if she finds out.\\nOff with their heads!",
+            "text": "La cabeza sin cuerpo introduce una idea interesante: ¿Puede existir una entidad incompleta? la autoridad de Wonderland es absurda. Empieza a perder el miedo. Un flujo constante de datos donde el tiempo parece no importar, los mensajes se cruzan y si no gestionas bien las suscripciones, terminas con un caos mental."
+        },
+        "turtle-semantic": {
+            "title": "Mock Turtle's Semantic",
+            "quote": "— And the moral of that is:\\nTake care of the semantics and the sense will take care of itself.",
+            "text": "xxx"
+        },
+        "lobster-quadrille": {
+            "title": "The Lobster Quadrille",
+            "quote": "— You first form into a line along the sea-shore— You can really have no notion how delightful it will be\\nWhen they take us up and throw us, with the lobsters, out to sea!\\n— It must be a very pretty dance",
+            "text": "Un baile coordinado de elementos HTML que entran y salen del DOM siguiendo un ritmo definido por tus estados de transición. En un sistema caótico, incluso las reglas más absurdas se pueden experimentar y manipular, si entiendes la lógica interna de cada elemento. seguir instrucciones perfectamente claras que no llevan a ningún resultado lógico."
+        },
+        "who-stole": {
+            "title": "Who stole the tarts?",
+            "quote": "Begin at the beginning, and go on till you come to the end: then stop.\\nSentence first — verdict afterwards.",
+            "text": "Intentar acabar, empezar otra vez, y nunca cacabarr"
+        },
+        "declaration": {
             "title": "Sarah's Declaration",
-            "text": "I drank the CSS potion and sad RGBs split into beams of Light to play with.\\nEverything was tinged with Saturation and Hues, and the shadows cast beautifully down below."
+            "quote": "— You're nothing but a pack of variables!\\n— That proves his guilt\\n— Stuff and nonsense!",
+            "text": "Despiertas con una aplicación funcional y sólida."
         },
-        "tea-party": {
-            "title": "A MAD TEA PARTY",
-            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
-        },
-        "croquet-ground": {
-            "title": "QUEEN'S CROQUET GROUND",
-            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
-        },
-        "turtle": {
-            "title": "MOCK TURTLE'S STORY",
-            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
-        },
-        "lobster": {
-            "title": "LOBSTER QUADRILLE",
-            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
-        },
-        "tarts": {
-            "title": "WHO STOLE THE TARTS?",
-            "quote": "— We're all mad here. I'm mad. You're mad.\\n— How do you know I'm mad?\\n— You must be, or you wouldn't have come here."
-        },
-        "guide": {
-            "title": "THE END GUIDE",
-            "quote": "You're nothing but a pack of variables!",
+        "end-guide": {
+            "title": "The End Guide",
+            "quote": "Curiouser and curiouser!",
             "text": "A small visual guide of what's been built so far.",
             "go": "GO",
             "goImgAlt": "Color palette"
         },
         "footer": {
-            "note": "🚨 Lewis Carroll never wrote this, but he probably would have if he'd had my background."
+            "note": "Lewis Carroll never wrote this, but he probably would have if he'd had my background."
         }
     }
 }

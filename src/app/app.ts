@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';
-import { MainHeaderComponent } from './shared/components/main-header/main-header.component';
+import { SplashScreenComponent } from "./features/splash-screen/splash-screen.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, MainHeaderComponent, RouterModule],
+  imports: [RouterOutlet, RouterModule, SplashScreenComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

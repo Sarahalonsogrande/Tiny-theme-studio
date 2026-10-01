@@ -1,0 +1,22 @@
+<div class="info-card">
+    <figure>
+    <img
+        [src]="movie().Poster"
+        alt="{{ movie().Title }}" />
+    <figcaption>{{ movie().Title }}</figcaption>
+    </figure>
+
+    <nav>
+        @for(item of details(); let i = $index; track $index) {
+            <app-disclosure-widget
+                [name]="movie().imdbID"
+                [isOpen]="i === 0"
+                [summary]="item.icon + '' + item.label"
+                [detailsContent]="item.content"
+                [detailsLink]="'Ver en IMDB'"
+                [route]="'/movie/' + movie().imdbID">
+            </app-disclosure-widget>
+        }
+
+    </nav>
+</div>

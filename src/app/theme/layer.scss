@@ -1,10 +1,10 @@
-:root{
-    /* LAYERING Z-INDEX */
-    --layer-behind: -1;
-    --layer-base: auto;
-    --layer-raised: 10;
-    --layer-floating: 100;
-    --layer-overlay: 200;
-    --layer-modal: 400;
-    --layer-toast: 800;
+:root {
+  /* LAYERING Z-INDEX */
+  --layer-behind: -1; /* Backgrounds, decorative elements */
+  --layer-base: auto; /* Default content, main layout */
+  --layer-raised: 10; /* Cards, raised blocks, popover triggers */
+  --layer-floating: 100; /* Sticky headers, floating navs, dropdowns */
+  --layer-overlay: 200; /* Overlays, animated overlays */
+  --layer-modal: 400; /* Modals, dialogs, blocking overlays */
+  --layer-toast: 800; /* Toasts, alerts, notification banners */
 }

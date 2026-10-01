@@ -1,0 +1,185 @@
+/*
+	Motion primitives
+	- Reusable keyframes and utility classes.
+	- Keep feature-specific narratives outside this file.
+*/
+
+@keyframes motion-fade-in {
+    from { opacity: 0; }
+
+    to { opacity: 1; }
+}
+
+@keyframes motion-rise {
+    from {
+        opacity: 0;
+        transform: translateY(var(--motion-distance-md));
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes motion-slide {
+    from {
+        opacity: 0;
+        transform: translateX(calc(var(--motion-distance-lg) * -1));
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes motion-blur-reveal {
+    from {
+        opacity: 0;
+        filter: blur(var(--motion-blur-md));
+        transform: scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        filter: blur(0);
+        transform: scale(1);
+    }
+}
+
+@keyframes motion-scale-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(10);
+
+        // transform: scale(var(--motion-scale-soft));
+    }
+}
+
+@keyframes motion-fall {
+    from {
+        opacity: 0;
+        transform: translateY(calc(var(--motion-distance-lg) * -1)) scale(var(--motion-scale-soft));
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes motion-glitch {
+    0% {
+        opacity: 0;
+        transform: skewX(10deg) translateX(-2px);
+    }
+
+    20% {
+        opacity: 1;
+        transform: skewX(-6deg) translateX(2px);
+    }
+
+    30% { transform: skewX(3deg) translateX(-1px); }
+
+    100% {
+        opacity: 1;
+        transform: skewX(0deg) translateX(0);
+    }
+}
+
+@keyframes motion-quote-fade-grow {
+    0% {
+        opacity: 0.9;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(var(--motion-scale-md));
+    }
+}
+
+.motion-fade-in {
+    animation-name: motion-fade-in;
+    animation-duration: var(--motion-enter-duration);
+    animation-timing-function: var(--motion-enter-ease);
+    animation-fill-mode: both;
+}
+
+.motion-rise {
+    animation-name: motion-rise;
+    animation-duration: var(--motion-enter-duration);
+    animation-timing-function: var(--motion-enter-ease);
+    animation-fill-mode: both;
+}
+
+.motion-slide {
+    animation-name: motion-slide;
+    animation-duration: var(--motion-enter-duration);
+    animation-timing-function: var(--motion-enter-ease);
+    animation-fill-mode: both;
+}
+
+.motion-blur-reveal {
+    animation-name: motion-blur-reveal;
+    animation-duration: var(--motion-emphasized-duration);
+    animation-timing-function: var(--motion-system-ease);
+    animation-fill-mode: both;
+}
+
+.motion-scale-out {
+    animation-name: motion-scale-out;
+    animation-duration: var(--motion-exit-duration);
+    animation-timing-function: var(--motion-exit-ease);
+    animation-fill-mode: both;
+}
+
+.motion-fall {
+    animation-name: motion-fall;
+    animation-duration: var(--motion-enter-duration);
+    animation-timing-function: var(--motion-enter-ease);
+    animation-fill-mode: both;
+}
+
+.motion-glitch {
+    animation-name: motion-glitch;
+    animation-duration: var(--duration-sm);
+    animation-timing-function: var(--ease-glitch);
+    animation-fill-mode: both;
+}
+
+.motion-quote-fade-grow {
+    animation-name: motion-quote-fade-grow;
+    animation-duration: var(--motion-emphasized-duration);
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    transform-origin: center top;
+}
+
+/* Accessibility policy: disable animations when user prefers reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    .motion-fade-in,
+    .motion-rise,
+    .motion-slide,
+    .motion-blur-reveal,
+    .motion-scale-out,
+    .motion-fall,
+    .motion-glitch,
+    .motion-quote-fade-grow {
+        animation: none !important;
+        transform: none !important;
+        filter: none !important;
+        opacity: 1 !important;
+    }
+
+    /* Disable decorative sticky-nav animation in welcome. */
+    app-welcome .stuck-top nav {
+        animation: none;
+    }
+}

@@ -1,8 +1,16 @@
+  <div class="gridy">
+    @for(movies of movie(); track $index) {
+                <app-info-card [movie]="movies" />
+
+    }
+  </div>
+
 <main>
   <div class="carousel">
     <div class="carousel-track">
       <div class="card carousel-item">
         <app-colors />
+
       </div>
 
     </div>

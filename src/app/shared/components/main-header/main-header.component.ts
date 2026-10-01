@@ -6,21 +6,18 @@
  */
 
 import { Component, ChangeDetectionStrategy, signal, inject } from '@angular/core';
-import { Router, NavigationEnd, RouterLink } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 import { Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
 import { TranslateModule } from '@ngx-translate/core';
 import { LanguageSwitcherComponent } from '../buttons/language-switcher/language-switcher.component';
 import { APP_TITLES, NAV_OPTIONS } from '@app/core/constants/ui/ui-config.constants';
-import { ThemeManagerComponent } from "@app/shared/components/theme-manager/theme-manager.component";
-import { MainTitleComponent } from "../main-title/main-title.component";
-import { HomeButtonComponent } from "../buttons/home-button/home-button.component";
 import { MoodSwitcherComponent } from "../buttons/mood-switcher/mood-switcher.component";
 import { ModeSwitcherComponent } from "../buttons/mode-switcher/mode-switcher.component";
 
 @Component({
   selector: 'app-main-header',
-  imports: [LanguageSwitcherComponent, TranslateModule, ThemeManagerComponent, MainTitleComponent, HomeButtonComponent, MoodSwitcherComponent, ModeSwitcherComponent],
+  imports: [LanguageSwitcherComponent, TranslateModule, MoodSwitcherComponent, ModeSwitcherComponent],
   templateUrl: './main-header.component.html',
   styleUrl: './main-header.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,0 +1,45 @@
+<div class="pin-wrap-sticky">
+    <div class="pin-wrap">
+        <article></article>
+
+        <article>
+            <picture>
+                @if(isDarkMode()) {
+                    <img src="/images/Alice-Swimming-Dark.svg" alt="Alice swimming (dark)">
+                } @else() {
+                    <img src="/images/Alice-Swimming.svg" alt="Alice swimming (light)">
+                }
+            </picture>
+        </article>
+
+        <article>
+			<app-readme />
+        </article>
+
+        <article>
+            <picture>
+                @if(isDarkMode()) {
+                    <img src="/images/Alice-Mouse-Dark.svg" alt="Alice swimming with Mouse (dark)">
+                } @else() {
+                    <img src="/images/Alice-Mouse.svg" alt="Alice swimming with Mouse (light)">
+                }
+            </picture>
+        </article>
+
+        <article>
+			<app-readme />
+        </article>
+
+        <article>
+            <picture>
+                @if(isDarkMode()) {
+                    <img src="/images/Alice-Key-Dark.svg" alt="Alice swimming with Key (dark)">
+                } @else() {
+                    <img src="/images/Alice-Key.svg" alt="Alice swimming with Key (light)">
+                }
+            </picture>
+        </article>
+
+        <article></article>
+    </div>
+</div>

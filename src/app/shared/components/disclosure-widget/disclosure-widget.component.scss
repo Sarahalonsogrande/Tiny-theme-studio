@@ -1,0 +1,79 @@
+// details {
+//     position: relative;
+//     max-inline-size: 40rem;
+//     padding: var(--space-1);
+//     margin-block: var(--space-1) 0;
+//     margin-inline: auto;
+//     background-image: linear-gradient(
+//         to top left,
+//         var(--color-highlight-weakest),
+//         hsl(0 100% 95%)
+//     );
+//     border: 1px solid hsl(260deg 100% 95%);
+//     border-radius: var(--radius-sm);
+
+//     summary {
+//         padding-inline: var(--space-2);
+//         position: relative;
+//         text-transform: uppercase;
+//         font-size: var(--font-size-xs);
+//         cursor: pointer;
+
+//         &::marker {
+
+//             font-size: var(--font-size-xs);
+//             color: hsl(0 0% 40%);
+//         }
+//     }
+
+//     &::details-content {
+//         display: block;
+//         block-size: 0;
+//         margin-inline: var(--space-5);
+//         overflow: hidden;
+//         transition-property: block-size 0.5s, content-visiblity 0.5s;
+//         transition-duration: 0.5s;
+//         transition-behavior: allow-discrete;
+//     }
+
+//     &[open]::details-content {
+//         /* Fallback for browsers that don't support calc-size() */
+//         block-size: auto;
+//         /* calc-size() funct allows transition to height: auto; */
+//         block-size: calc-size(auto, size);
+//     }
+// }
+.details {
+  border-bottom: 1px solid #f8f8f8;
+
+  .details-summary {
+    padding: 12px 20px;
+    cursor: pointer;
+    list-style: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    transition: background 0.2s;
+
+    &:hover { background: #f9f9f9; }
+    &::-webkit-details-marker { display: none; } // Quita la flecha fea en Safari
+  }
+
+  .details-content {
+    padding: 0 20px 15px;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: #666;
+
+    a {
+      display: inline-block;
+      margin-top: 8px;
+      color: #007bff;
+      text-decoration: none;
+      font-weight: bold;
+      &:hover { text-decoration: underline; }
+    }
+  }
+}

@@ -52,7 +52,7 @@
     --shadow-mood-effect:
         calc(var(--shadow-x) * 2) 0 20px 4px var(--background),
         calc(var(--shadow-x) * 3) 0 20px 12px var(--color-primary),
-        calc(var(--shadow-x) * 4) 0 40px 20px var(--color-accent),
+        calc(var(--shadow-x) * 4) 0 40px 20px var(--color-primary),
         calc(var(--shadow-x) * 5) 0 40px 28px var(--color-highlight);
 
     /* MOOD ELEVATION TOKENS (PUBLIC API — use these in components) */
